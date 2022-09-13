@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
+[RequireComponent(typeof(PlaySFX))]
 public class FlingScript : MonoBehaviour
 {
     private Rigidbody rb;
@@ -10,6 +11,7 @@ public class FlingScript : MonoBehaviour
     public float jumpSpeed;
     private BoxCollider bc;
     private ParticleSystem particle;
+    private PlaySFX playSFX;
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class FlingScript : MonoBehaviour
             rb.velocity = Vector3.zero;
           //  player.advancedSettings.airControl = false;
             rb.AddForce(this.transform.up * jumpSpeed, ForceMode.VelocityChange);
+            playSFX.PlaySound();
             rb = null;
         }
     }
