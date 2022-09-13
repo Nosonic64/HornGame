@@ -161,6 +161,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_IsGrounded)
             {
                 m_RigidBody.drag = 5f;
+                advancedSettings.airControl = true;
 
                 if (m_Jump)
                 {
