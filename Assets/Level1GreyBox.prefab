@@ -19348,7 +19348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4037691417255028634}
   m_Layer: 0
-  m_Name: StartingPlatform (1)
+  m_Name: EndingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32459,7 +32459,7 @@ GameObject:
   - component: {fileID: 5715116153276593997}
   - component: {fileID: 7302045558041054782}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: END ITEM?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
