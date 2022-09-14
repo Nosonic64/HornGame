@@ -13,6 +13,8 @@ public class KillTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
+        // When the player enters a kill trigger, we set their position to be whatever Vector3 is currently saved in CheckPointHandler. 
+        // We also turn their velocity to zero, so that they dont carry any velocity they had with them.
         if (col.gameObject.tag == "Player")
         {
             var rb = col.GetComponent<Rigidbody>();

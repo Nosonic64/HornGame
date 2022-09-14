@@ -28,6 +28,7 @@ public class LilyPadProgrammatic : MonoBehaviour
         startPos = transform.position;
         startTime = Time.time;
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        // If we have both a start and end marker, we can allow the lilypad to move
         if (startMarker != null && endMarker != null)
         {
             atStart = true;
@@ -36,6 +37,7 @@ public class LilyPadProgrammatic : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        // Parent the players transform to the lilypads so that they move with the platform
         if (col.gameObject.tag == "Player")
         {
             col.gameObject.transform.parent = this.gameObject.transform;
@@ -45,6 +47,7 @@ public class LilyPadProgrammatic : MonoBehaviour
 
     private void OnTriggerStay(Collider col)
     {
+        // While the player stands on the platform, it will continually move down
         if (col.gameObject.tag == "Player")
         {
             transform.position -= new Vector3(0f, sinkSpeed, 0f) * Time.deltaTime;
@@ -53,6 +56,7 @@ public class LilyPadProgrammatic : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
+        // Unparent the player from the platform when they leave
         if (col.gameObject.tag == "Player")
         {
             col.gameObject.transform.parent = null;
@@ -62,13 +66,16 @@ public class LilyPadProgrammatic : MonoBehaviour
 
     private void Update()
     {
+        // If the current position of the lilypads Y is lower than its start position Y, and the player isnt on the lilypad, we continually move the lilypad
+        // up until its at its start Y position again.
         if (transform.position.y < startPos.y && !playerOn)
         {
             transform.position += new Vector3(0f, floatSpeed, 0f) * Time.deltaTime;
         }
 
-        
 
+        // Most of this code is taken directly from https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
+        // We get the lilypad to move between two markers placed in the editor
         if (atStart)
         {
             float distCovered = (Time.time - startTime) * moveSpeed;
