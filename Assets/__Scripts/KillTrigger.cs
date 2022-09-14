@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
 {
-    [Header("!Make sure to drag 'CheckPointHandler' from the scene into this, otherwise it wont function!")]
-    public GameObject checkpointHandler;
+    [Header("Make sure there is only !ONE! CheckPointHandler object in the scene")]
     private CheckPointHandler checkpointHandlerScript;
 
     private void Start()
     {
-        checkpointHandlerScript = checkpointHandler.GetComponent<CheckPointHandler>();
+        checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
     }
     private void OnTriggerEnter(Collider col)
     {
