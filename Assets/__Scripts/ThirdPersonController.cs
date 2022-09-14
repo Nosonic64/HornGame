@@ -30,8 +30,11 @@ public class ThirdPersonController : MonoBehaviour
     float localVelocityZ;
     float localVelocityY;
 
-    private CapsuleCollider cc;
+    private float lastForward;
+    private float lastRight;
 
+    private CapsuleCollider cc;
+    private bool sliding;
     private int jumps;
 
     void Awake()
@@ -111,7 +114,17 @@ public class ThirdPersonController : MonoBehaviour
         if (IsGrounded())
         {
             charRigidBody.AddForce(newForce * speed);
-            Debug.Log(moveForward);
+            //Debug.Log(moveForward);
+            if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
+            {
+                Debug.Log("Change DIRECTION");
+                animator.SetBool("Slide", true);
+                StartCoroutine(SlideStop());
+                
+            }
+            lastForward = moveForward;
+            lastRight = moveRight;
+            
         }
         else
         {
@@ -140,6 +153,14 @@ public class ThirdPersonController : MonoBehaviour
 
         Debug.DrawRay(cc.bounds.center, Vector3.down * (cc.bounds.extents.y + 0.1f));
         return raycastHit;
+    }
+
+    public IEnumerator SlideStop()
+    {
+        yield return new WaitForSeconds(0.3f);
+        animator.SetBool("Slide", false);
+
+
     }
 
 }

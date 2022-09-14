@@ -42,7 +42,7 @@ public class DelayedFall : MonoBehaviour
 
     void OnCollisionExit()
     {
-        PushAway();
+        //PushAway();
         //
     }
 
