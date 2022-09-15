@@ -92,7 +92,7 @@ public class ThirdPersonController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && jumps < 2)
         {
             animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 1500, 500));
+            charRigidBody.AddForce(new Vector3(0, 1600, 50));
             Debug.Log("JUMP");
             jumps++;
         }
@@ -118,8 +118,8 @@ public class ThirdPersonController : MonoBehaviour
             if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
             {
                 Debug.Log("Change DIRECTION");
-                animator.SetBool("Slide", true);
-                StartCoroutine(SlideStop());
+                //animator.SetBool("Slide", true);
+                //StartCoroutine(SlideStop());
                 
             }
             lastForward = moveForward;
@@ -128,7 +128,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
-            charRigidBody.AddForce(newForce * (speed / 5));
+            charRigidBody.AddForce(newForce * (speed / 3));
         }
         /*float moveRight = Input.GetAxis("Horizontal");
         float moveForward = Input.GetAxis("Vertical");
