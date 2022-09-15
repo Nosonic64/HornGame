@@ -17,20 +17,8 @@ public class KillTrigger : MonoBehaviour
         // We also turn their velocity to zero, so that they dont carry any velocity they had with them.
         if (col.gameObject.tag == "Player")
         {
-            //StartCoroutine(PlayDeath(col));
             var _playerController = col.gameObject.GetComponent<ThirdPersonController>();
             _playerController.StartCoroutine(_playerController.CharacterDeath(col));
         }
-    }
-    IEnumerator PlayDeath(Collider col)
-    {
-        while (true)
-        {
-            Debug.Log("Time to Respawn!");
-            yield return new WaitForSeconds(3.5f);
-            Debug.Log("Time to Respawn!2");
-            yield return null;
-        }
-        
     }
 }
