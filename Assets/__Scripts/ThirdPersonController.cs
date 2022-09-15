@@ -41,6 +41,7 @@ public class ThirdPersonController : MonoBehaviour
     private Vector2 turn;
     public GameObject lookAt;
     public CinemachineVirtualCamera virtualCam;
+    private bool doubleJump;
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -108,8 +109,19 @@ public class ThirdPersonController : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && jumps < 2)
         {
-            animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 1600, 50));
+            if(jumps == 0)
+            {
+                animator.SetBool("Falling", true);
+                animator.SetBool("DoubleJump", false);
+            }
+            else
+            {
+                StartCoroutine(DoubleJumpStop());
+                animator.SetBool("DoubleJump", true);
+                animator.SetBool("Falling", false);
+            }
+            //animator.SetBool("Falling", true);
+            charRigidBody.AddForce(new Vector3(0, 1600, 0) + (transform.forward * 50));
             Debug.Log("JUMP");
             jumps++;
         }
@@ -145,7 +157,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
-            charRigidBody.AddForce(newForce * (speed / 3));
+            charRigidBody.AddForce(newForce * (speed / 2));
         }
         /*float moveRight = Input.GetAxis("Horizontal");
         float moveForward = Input.GetAxis("Vertical");
@@ -176,6 +188,14 @@ public class ThirdPersonController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         animator.SetBool("Slide", false);
+
+
+    }
+
+    public IEnumerator DoubleJumpStop()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("DoubleJump", false);
 
 
     }
