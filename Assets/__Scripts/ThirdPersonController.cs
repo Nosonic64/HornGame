@@ -44,6 +44,8 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject lookAt;
     public CinemachineVirtualCamera virtualCam;
     private bool doubleJump;
+
+    private bool dying;
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -141,35 +143,35 @@ public class ThirdPersonController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
-        Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
-        Vector3 newForce = moveRight + moveForward;
-        if (IsGrounded())
+        if (!dying)
         {
-            charRigidBody.AddForce(newForce * speed);
-            //Debug.Log(moveForward);
-            /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
+            Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
+            Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
+            Vector3 newForce = moveRight + moveForward;
+            if (IsGrounded())
             {
-                Debug.Log("Change DIRECTION");
-                //animator.SetBool("Slide", true);
-                //StartCoroutine(SlideStop());
-                
-            }*/
-            //lastForward = moveForward;
-            //lastRight = moveRight;
-            
-        }
-        else
-        {
-            charRigidBody.AddForce(newForce * (speed / 2));
-        }
-        /*float moveRight = Input.GetAxis("Horizontal");
-        float moveForward = Input.GetAxis("Vertical");
-        Vector3 newForce = new Vector3(moveRight, 0, moveForward);*/
-        //charRigidBody.AddForce(newForce * speed);
-        
+                charRigidBody.AddForce(newForce * speed);
+                //Debug.Log(moveForward);
+                /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
+                {
+                    Debug.Log("Change DIRECTION");
+                    //animator.SetBool("Slide", true);
+                    //StartCoroutine(SlideStop());
 
-        
+                }*/
+                //lastForward = moveForward;
+                //lastRight = moveRight;
+
+            }
+            else
+            {
+                charRigidBody.AddForce(newForce * (speed / 2));
+            }
+            /*float moveRight = Input.GetAxis("Horizontal");
+            float moveForward = Input.GetAxis("Vertical");
+            Vector3 newForce = new Vector3(moveRight, 0, moveForward);*/
+            //charRigidBody.AddForce(newForce * speed);
+        }
     }
 
     private bool IsGrounded()
@@ -205,12 +207,19 @@ public class ThirdPersonController : MonoBehaviour
     }
     public IEnumerator CharacterDeath(Collider col)
     {
-        canvasTransition.CloseBlackScreen();
-        yield return new WaitForSeconds(2f);
-        var rb = col.GetComponent<Rigidbody>();
-        col.gameObject.transform.position = checkpointHandlerScript.currentCheckpointLocation;
-        rb.velocity = Vector3.zero;
-        rb = null;
-        canvasTransition.OpenBlackScreen();
+        if (!dying)
+        {
+            dying = true;
+            animator.SetBool("Death", true);
+            canvasTransition.CloseBlackScreen();
+            yield return new WaitForSeconds(2f);
+            var rb = col.GetComponent<Rigidbody>();
+            col.gameObject.transform.position = checkpointHandlerScript.currentCheckpointLocation;
+            rb.velocity = Vector3.zero;
+            rb = null;
+            canvasTransition.OpenBlackScreen();
+            dying = false;
+        }
+        
     }
 }
