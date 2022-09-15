@@ -40,7 +40,7 @@ public class LilyPadProgrammatic : MonoBehaviour
         // Parent the players transform to the lilypads so that they move with the platform
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.parent = this.gameObject.transform;
+            col.gameObject.transform.parent.parent = this.gameObject.transform;
             playerOn = true;
         }
     }
@@ -59,7 +59,7 @@ public class LilyPadProgrammatic : MonoBehaviour
         // Unparent the player from the platform when they leave
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.parent = null;
+            col.gameObject.transform.parent.parent = null;
             playerOn = false;
         }
     }
