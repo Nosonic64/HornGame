@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7482817659732872353}
   - component: {fileID: 7482817659732872358}
   - component: {fileID: 7482817659732872380}
+  - component: {fileID: 3713952237967513858}
   m_Layer: 0
   m_Name: KillTrigger
   m_TagString: Untagged
@@ -357,3 +358,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointHandler: {fileID: 0}
+--- !u!114 &3713952237967513858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7482817659732872359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1590c4f4989fe041989f3fc9d87edc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
