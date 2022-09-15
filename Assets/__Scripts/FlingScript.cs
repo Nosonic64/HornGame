@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
+[RequireComponent(typeof(PlaySFX))]
 public class FlingScript : MonoBehaviour
 {
-    public Rigidbody rb;
+    private Rigidbody rb;
     public float jumpSpeed;
-    public BoxCollider bc;
+    private BoxCollider bc;
+    private ParticleSystem particle;
+    private PlaySFX playSFX;
 
     private void Start()
     {
         bc = GetComponent<BoxCollider>();
+        particle = GetComponent<ParticleSystem>();  
+        playSFX = GetComponent<PlaySFX>();
         bc.enabled = false;
     }
 
@@ -23,6 +29,7 @@ public class FlingScript : MonoBehaviour
         {
             rb = col.gameObject.GetComponent<Rigidbody>();
             rb.velocity = Vector3.zero;
+            rb.transform.position += new Vector3(0f,0.1f,0f);
             rb.AddForce(this.transform.up * jumpSpeed, ForceMode.VelocityChange);
             rb = null;
         }
@@ -34,7 +41,8 @@ public class FlingScript : MonoBehaviour
     public IEnumerator TrumpetShot()
     {
         bc.enabled = true;
-        // !Add Feature!:  Play a burst of a particle system attached to this object, gives an indication that the player can now use the trumpet air to fling themselves
+        particle.Play();
+        playSFX.PlaySound();
         yield return new WaitForSeconds(1f);
         bc.enabled = false;
         yield return null;

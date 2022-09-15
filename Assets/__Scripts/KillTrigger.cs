@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
 {
-    [Header("!Make sure to drag 'CheckPointHandler' from the scene into this, otherwise it wont function!")]
-    public GameObject checkpointHandler;
-    private CheckPointHandler checkpointHandlerScript;
+    //[Header("Make sure there is only !ONE! CheckPointHandler object in the scene")]
+
 
     private void Start()
     {
-        checkpointHandlerScript = checkpointHandler.GetComponent<CheckPointHandler>();
+
     }
     private void OnTriggerEnter(Collider col)
     {
+        // When the player enters a kill trigger, we set their position to be whatever Vector3 is currently saved in CheckPointHandler. 
+        // We also turn their velocity to zero, so that they dont carry any velocity they had with them.
         if (col.gameObject.tag == "Player")
         {
-            var rb = col.GetComponent<Rigidbody>();
-            col.gameObject.transform.position = checkpointHandlerScript.currentCheckpointLocation;
-            rb.velocity = Vector3.zero;
-            rb = null;
+            var _playerController = col.gameObject.GetComponent<ThirdPersonController>();
+            _playerController.StartCoroutine(_playerController.CharacterDeath(col));
         }
     }
 }
