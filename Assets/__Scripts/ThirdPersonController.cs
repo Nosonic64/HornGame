@@ -6,6 +6,8 @@ using Cinemachine;
 public class ThirdPersonController : MonoBehaviour
 {
     // Start is called before the first frame update
+    private CheckPointHandler checkpointHandlerScript;
+    private CanvasTransition canvasTransition;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -57,6 +59,8 @@ public class ThirdPersonController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
+        canvasTransition = FindObjectOfType<CanvasTransition>();
 
     }
     void Update()
@@ -199,5 +203,14 @@ public class ThirdPersonController : MonoBehaviour
 
 
     }
-
+    public IEnumerator CharacterDeath(Collider col)
+    {
+        canvasTransition.CloseBlackScreen();
+        yield return new WaitForSeconds(2f);
+        var rb = col.GetComponent<Rigidbody>();
+        col.gameObject.transform.position = checkpointHandlerScript.currentCheckpointLocation;
+        rb.velocity = Vector3.zero;
+        rb = null;
+        canvasTransition.OpenBlackScreen();
+    }
 }

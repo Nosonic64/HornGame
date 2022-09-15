@@ -37,6 +37,8 @@ public class CanvasTransition : MonoBehaviour
     public void OpenBlackScreen()
     {
         StartCoroutine(Transition(2, 0, 1));
+        
+        
     }
 
     public void CloseBlackScreen()

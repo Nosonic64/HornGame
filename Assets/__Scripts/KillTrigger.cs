@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
 {
-    [Header("Make sure there is only !ONE! CheckPointHandler object in the scene")]
-    private CheckPointHandler checkpointHandlerScript;
+    //[Header("Make sure there is only !ONE! CheckPointHandler object in the scene")]
+
 
     private void Start()
     {
-        checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
+
     }
     private void OnTriggerEnter(Collider col)
     {
@@ -17,10 +17,20 @@ public class KillTrigger : MonoBehaviour
         // We also turn their velocity to zero, so that they dont carry any velocity they had with them.
         if (col.gameObject.tag == "Player")
         {
-            var rb = col.GetComponent<Rigidbody>();
-            col.gameObject.transform.position = checkpointHandlerScript.currentCheckpointLocation;
-            rb.velocity = Vector3.zero;
-            rb = null;
+            //StartCoroutine(PlayDeath(col));
+            var _playerController = col.gameObject.GetComponent<ThirdPersonController>();
+            _playerController.StartCoroutine(_playerController.CharacterDeath(col));
         }
+    }
+    IEnumerator PlayDeath(Collider col)
+    {
+        while (true)
+        {
+            Debug.Log("Time to Respawn!");
+            yield return new WaitForSeconds(3.5f);
+            Debug.Log("Time to Respawn!2");
+            yield return null;
+        }
+        
     }
 }
