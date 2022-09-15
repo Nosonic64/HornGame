@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 112443665384025016}
   - component: {fileID: 112443665384025023}
   - component: {fileID: 112443665384025022}
+  - component: {fileID: 8860019970137247398}
   m_Layer: 0
   m_Name: 3rdPersonCartoon
   m_TagString: Untagged
@@ -140,6 +141,20 @@ MonoBehaviour:
   speed: 18
   maximumSpeed: 5
   acceleration: 1
+--- !u!136 &8860019970137247398
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112443665384025021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &165247421995337958
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5331579130268688967}
   - component: {fileID: 713639083094107985}
-  - component: {fileID: 713639083094107986}
   m_Layer: 0
   m_Name: Boy01_Body_Geo
   m_TagString: Untagged
@@ -907,20 +921,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.034563854, y: 0.082900345, z: 0.11837849}
     m_Extent: {x: 0.4160468, y: 0.981703, z: 0.4913161}
   m_DirtyAABB: 0
---- !u!136 &713639083094107986
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314822254025610948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0.05288069, y: 0.86461437, z: 0.099417195}
 --- !u!1 &2592758936817988458
 GameObject:
   m_ObjectHideFlags: 0
