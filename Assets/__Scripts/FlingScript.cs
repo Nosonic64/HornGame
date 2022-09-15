@@ -7,7 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class FlingScript : MonoBehaviour
 {
     private Rigidbody rb;
-    private RigidbodyFirstPersonController player;
     public float jumpSpeed;
     private BoxCollider bc;
     private ParticleSystem particle;
@@ -17,6 +16,7 @@ public class FlingScript : MonoBehaviour
     {
         bc = GetComponent<BoxCollider>();
         particle = GetComponent<ParticleSystem>();  
+        playSFX = GetComponent<PlaySFX>();
         bc.enabled = false;
     }
 
@@ -28,11 +28,9 @@ public class FlingScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             rb = col.gameObject.GetComponent<Rigidbody>();
-            player = col.gameObject.GetComponent<RigidbodyFirstPersonController>();
             rb.velocity = Vector3.zero;
-          //  player.advancedSettings.airControl = false;
+            rb.transform.position += new Vector3(0f,0.1f,0f);
             rb.AddForce(this.transform.up * jumpSpeed, ForceMode.VelocityChange);
-            playSFX.PlaySound();
             rb = null;
         }
     }
@@ -44,6 +42,7 @@ public class FlingScript : MonoBehaviour
     {
         bc.enabled = true;
         particle.Play();
+        playSFX.PlaySound();
         yield return new WaitForSeconds(1f);
         bc.enabled = false;
         yield return null;

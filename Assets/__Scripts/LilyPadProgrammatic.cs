@@ -27,10 +27,10 @@ public class LilyPadProgrammatic : MonoBehaviour
     {
         startPos = transform.position;
         startTime = Time.time;
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
         // If we have both a start and end marker, we can allow the lilypad to move
         if (startMarker != null && endMarker != null)
         {
+            journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
             atStart = true;
         }
     }
