@@ -37,6 +37,9 @@ public class ThirdPersonController : MonoBehaviour
     private bool sliding;
     private int jumps;
 
+    private Vector2 turn;
+    public GameObject lookAt;
+
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -51,11 +54,22 @@ public class ThirdPersonController : MonoBehaviour
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
     void Update()
     {
+
+        turn.x += Input.GetAxis("Mouse X");
+        /*turn.y += Input.GetAxis("Mouse Y");*/
+        Debug.Log(turn.x);
+        //transform.localRotation = Quaternion.Euler(0, turn.x, 0);
+        charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
+        if (Input.GetButtonDown("Fire2"))
+        {
+            
+        }
+
         if (IsGrounded())
         {
             jumps = 0;
@@ -108,22 +122,22 @@ public class ThirdPersonController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float moveRight = Input.GetAxis("Horizontal");
-        float moveForward = Input.GetAxis("Vertical");
-        Vector3 newForce = new Vector3(moveRight, 0, moveForward);
+        Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
+        Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
+        Vector3 newForce = moveRight + moveForward;
         if (IsGrounded())
         {
             charRigidBody.AddForce(newForce * speed);
             //Debug.Log(moveForward);
-            if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
+            /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
             {
                 Debug.Log("Change DIRECTION");
                 //animator.SetBool("Slide", true);
                 //StartCoroutine(SlideStop());
                 
-            }
-            lastForward = moveForward;
-            lastRight = moveRight;
+            }*/
+            //lastForward = moveForward;
+            //lastRight = moveRight;
             
         }
         else
