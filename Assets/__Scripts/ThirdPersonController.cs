@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private Vector2 turn;
     public GameObject lookAt;
-
+    public CinemachineVirtualCamera virtualCam;
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -64,6 +65,8 @@ public class ThirdPersonController : MonoBehaviour
         /*turn.y += Input.GetAxis("Mouse Y");*/
         Debug.Log(turn.x);
         //transform.localRotation = Quaternion.Euler(0, turn.x, 0);
+        //var transposer = virtualCam.GetCinemachineComponent<CinemachineTransposer>();
+        //transposer.m_FollowOffset = new Vector3(turn.x, transposer.m_FollowOffset.y, transposer.m_FollowOffset.z);
         charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
         if (Input.GetButtonDown("Fire2"))
         {
