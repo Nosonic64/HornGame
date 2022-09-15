@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8860019970137247398}
   m_Layer: 0
   m_Name: 3rdPersonCartoon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,8 @@ MonoBehaviour:
   speed: 18
   maximumSpeed: 5
   acceleration: 1
+  lookAt: {fileID: 0}
+  virtualCam: {fileID: 0}
 --- !u!136 &8860019970137247398
 CapsuleCollider:
   m_ObjectHideFlags: 0
