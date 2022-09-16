@@ -84,8 +84,8 @@ Rigidbody:
   m_AngularDrag: 0.3
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
+  m_Interpolate: 1
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!95 &112443665384025023
 Animator:
