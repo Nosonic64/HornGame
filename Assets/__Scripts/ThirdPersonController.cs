@@ -87,7 +87,6 @@ public class ThirdPersonController : MonoBehaviour
         if (IsGrounded())
         {
             jumps = 0;
-            animator.SetBool("Falling", false);
         }
         else
         {
@@ -122,16 +121,14 @@ public class ThirdPersonController : MonoBehaviour
             if(jumps == 0)
             {
                 animator.SetBool("Falling", true);
-                animator.SetBool("DoubleJump", false);
             }
             else
             {
                 StartCoroutine(DoubleJumpStop());
                 animator.SetBool("DoubleJump", true);
-                animator.SetBool("Falling", false);
             }
             //animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 1600, 0) + (transform.forward * 50));
+            charRigidBody.AddForce(new Vector3(0, 1000, 0) + (transform.forward * 50));
             Debug.Log("JUMP");
             jumps++;
         }
@@ -142,6 +139,7 @@ public class ThirdPersonController : MonoBehaviour
         animator.SetFloat(VelocityHash, velocity);
         animator.SetFloat(VelocityZHash, velocityZ);
         animator.SetFloat(VelocityYHash, localVelocityY);
+        animator.SetFloat("VelocityY", localVelocityY);
         animator.SetBool("Grounded", IsGrounded());
     }
     // Update is called once per frame
