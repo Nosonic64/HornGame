@@ -17,11 +17,13 @@ public class DelayedFall : MonoBehaviour
     //Other Useful Variables
     private bool objectTriggered;
 
+    private Vector3 returnPos;
     void Start()
     {
+        returnPos = transform.position;
         keyAudioSource = transform.GetComponent<AudioSource>();
         keyRigidbody = transform.GetComponent<Rigidbody>();
-        keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     // Update is called once per frame
@@ -30,26 +32,33 @@ public class DelayedFall : MonoBehaviour
         
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
-        objectTriggered = true;
-        //Play Note
-        keyAudioSource.clip = noteToPlay;
-        keyAudioSource.Play(0);
-        StartCoroutine(ObjectFall());
+        if(col.collider.gameObject.tag == "Player")
+        {
+            objectTriggered = true;
+            //Play Note
+            keyAudioSource.clip = noteToPlay;
+            keyAudioSource.Play(0);
+            StartCoroutine(ObjectFall());
+        }
+        
         //
     }
 
     void OnCollisionExit()
     {
         //PushAway();
-        //
+        PushAway();
+        StartCoroutine(ObjectFall());
     }
 
     public IEnumerator ObjectFall()
     {
         yield return new WaitForSeconds(5f);
         PushAway();
+        yield return new WaitForSeconds(5f);
+        ComeBack();
 
 
     }
@@ -62,9 +71,17 @@ public class DelayedFall : MonoBehaviour
             keyAudioSource.clip = breakSFX;
             keyAudioSource.Play(0);
             objectTriggered = false;
-            keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+            keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ; ;
             keyRigidbody.mass = 1;
+            keyRigidbody.useGravity = true;
             
         }
+    }
+
+    private void ComeBack()
+    {
+        transform.position = returnPos;
+        keyRigidbody.useGravity = false;
+        keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 }

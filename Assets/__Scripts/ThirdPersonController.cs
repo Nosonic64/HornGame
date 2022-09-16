@@ -46,6 +46,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool doubleJump;
 
     private bool dying;
+    private CinemachineComposer composer;
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -63,18 +64,21 @@ public class ThirdPersonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
         canvasTransition = FindObjectOfType<CanvasTransition>();
-
+        composer = virtualCam.GetCinemachineComponent<CinemachineComposer>();
     }
     void Update()
     {
-
+        lookAt.transform.position = transform.position;
         turn.x += Input.GetAxis("Mouse X");
-        /*turn.y += Input.GetAxis("Mouse Y");*/
-        Debug.Log(turn.x);
-        //transform.localRotation = Quaternion.Euler(0, turn.x, 0);
-        //var transposer = virtualCam.GetCinemachineComponent<CinemachineTransposer>();
-        //transposer.m_FollowOffset = new Vector3(turn.x, transposer.m_FollowOffset.y, transposer.m_FollowOffset.z);
-        charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
+        turn.y += Input.GetAxis("Mouse Y");
+        turn.y = Mathf.Clamp(turn.y, -45, 35);
+        Debug.Log(turn.y);
+        lookAt.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0);
+            
+
+
+        //composer.m_TrackedObjectOffset = new Vector3(composer.m_TrackedObjectOffset.x, -turn.y * 0.1f, composer.m_TrackedObjectOffset.z);
+
         if (Input.GetButtonDown("Fire2"))
         {
             
@@ -83,7 +87,6 @@ public class ThirdPersonController : MonoBehaviour
         if (IsGrounded())
         {
             jumps = 0;
-            animator.SetBool("Falling", false);
         }
         else
         {
@@ -118,16 +121,14 @@ public class ThirdPersonController : MonoBehaviour
             if(jumps == 0)
             {
                 animator.SetBool("Falling", true);
-                animator.SetBool("DoubleJump", false);
             }
             else
             {
                 StartCoroutine(DoubleJumpStop());
                 animator.SetBool("DoubleJump", true);
-                animator.SetBool("Falling", false);
             }
             //animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 1600, 0) + (transform.forward * 50));
+            charRigidBody.AddForce(new Vector3(0, 1000, 0) + (transform.forward * 50));
             Debug.Log("JUMP");
             jumps++;
         }
@@ -138,6 +139,7 @@ public class ThirdPersonController : MonoBehaviour
         animator.SetFloat(VelocityHash, velocity);
         animator.SetFloat(VelocityZHash, velocityZ);
         animator.SetFloat(VelocityYHash, localVelocityY);
+        animator.SetFloat("VelocityY", localVelocityY);
         animator.SetBool("Grounded", IsGrounded());
     }
     // Update is called once per frame
@@ -148,9 +150,18 @@ public class ThirdPersonController : MonoBehaviour
             Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
             Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
             Vector3 newForce = moveRight + moveForward;
+            if (newForce.magnitude > 0)
+            {
+                charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
+            }
             if (IsGrounded())
             {
-                charRigidBody.AddForce(newForce * speed);
+
+                if (newForce.magnitude > 0)
+                {
+                    
+                    charRigidBody.AddForce(newForce * speed);
+                }
                 //Debug.Log(moveForward);
                 /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
                 {

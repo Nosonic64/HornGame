@@ -17,7 +17,7 @@ public class CheckPointTrigger : MonoBehaviour
         // We add an offset to y so that the player doesnt get stuck in the ground
         if(col.gameObject.tag == "Player")
         {           
-            checkpointHandlerScript.currentCheckpointLocation = new Vector3(transform.position.x, transform.position.y + 1.8f, transform.position.z);
+            checkpointHandlerScript.currentCheckpointLocation = new Vector3(col.gameObject.transform.position.x, transform.position.y, col.gameObject.transform.position.z);
         }
     }
 }
