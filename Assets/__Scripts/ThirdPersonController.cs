@@ -69,6 +69,7 @@ public class ThirdPersonController : MonoBehaviour
         checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
         canvasTransition = FindObjectOfType<CanvasTransition>();
         composer = virtualCam.GetCinemachineComponent<CinemachineComposer>();
+        canvasTransition.OpenBlackScreen();
     }
     void Update()
     {
