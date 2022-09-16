@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c198acdef44263242973d0bf8333177a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteToPlay: {fileID: 8300000, guid: bc30732dd69c0fc4cbef30729b65b1e0, type: 3}
-  breakSFX: {fileID: 8300000, guid: 1ff9145075b60224e881107ac317fc40, type: 3}
+  noteToPlay: {fileID: 8300000, guid: 81bd89df6f3189b48a65ae490c21f710, type: 3}
+  breakSFX: {fileID: 8300000, guid: be704f3be2f8d5645aebb468ca2a4fdf, type: 3}
 --- !u!82 &5259320038915013899
 AudioSource:
   m_ObjectHideFlags: 0
@@ -227,6 +227,10 @@ PrefabInstance:
     - target: {fileID: 7648908588507628122, guid: 398d4a1cd1518324a878ca913484fb82, type: 3}
       propertyPath: m_VersionIndex
       value: 1108
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639281535215013591, guid: 398d4a1cd1518324a878ca913484fb82, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398d4a1cd1518324a878ca913484fb82, type: 3}

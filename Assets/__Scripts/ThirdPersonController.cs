@@ -47,6 +47,10 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool dying;
     private CinemachineComposer composer;
+
+    public LayerMask layerMask;
+
+    private bool groundedCheck;
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -68,6 +72,7 @@ public class ThirdPersonController : MonoBehaviour
     }
     void Update()
     {
+        groundedCheck = IsGrounded();
         lookAt.transform.position = transform.position;
         turn.x += Input.GetAxis("Mouse X");
         turn.y += Input.GetAxis("Mouse Y");
@@ -84,7 +89,7 @@ public class ThirdPersonController : MonoBehaviour
             
         }
 
-        if (IsGrounded())
+        if (groundedCheck)
         {
             jumps = 0;
         }
@@ -140,7 +145,7 @@ public class ThirdPersonController : MonoBehaviour
         animator.SetFloat(VelocityZHash, velocityZ);
         animator.SetFloat(VelocityYHash, localVelocityY);
         animator.SetFloat("VelocityY", localVelocityY);
-        animator.SetBool("Grounded", IsGrounded());
+        animator.SetBool("Grounded", groundedCheck);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -154,7 +159,7 @@ public class ThirdPersonController : MonoBehaviour
             {
                 charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
             }
-            if (IsGrounded())
+            if (groundedCheck)
             {
 
                 if (newForce.magnitude > 0)
@@ -187,7 +192,10 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        bool raycastHit = Physics.Raycast(cc.bounds.center, Vector3.down, cc.bounds.extents.y + 0.1f);
+
+        //SPHERECAST origin, direction, extent
+        RaycastHit m_Hit;
+        bool raycastHit = Physics.SphereCast(transform.position + transform.up, 0.4f, -transform.up, out m_Hit, 1f, layerMask, QueryTriggerInteraction.UseGlobal);
         Color rayColor;
         if (raycastHit)
         {
@@ -197,8 +205,23 @@ public class ThirdPersonController : MonoBehaviour
             rayColor = Color.red;
         }
 
-        Debug.DrawRay(cc.bounds.center, Vector3.down * (cc.bounds.extents.y + 0.1f));
+        //Debug.DrawRay(cc.bounds.center, Vector3.down * (cc.bounds.extents.y + 0.1f));
         return raycastHit;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundedCheck)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = Color.green;
+        }
+        
+        Debug.DrawLine(transform.position, transform.position + -transform.up * (1f));
+        Gizmos.DrawWireSphere(transform.position + -transform.up * (1f), 0.4f);
     }
 
     public IEnumerator SlideStop()
