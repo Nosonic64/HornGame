@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class XylophoneHit : MonoBehaviour
 {
+    //this script and everything associated with the xylophone keys is fucking esoteric
     private PlaySFX playSFX;
     public Transform rockSpawnPoint;
+    [Header("Change this value to wait longer before spawning a rock")]
     public float spawnDelayStart;
     public GameObject rock;
-    private float spawnDelay;
+    [Header("Dont touch this value")]
+    public float spawnDelay;
     private GameObject currentRock;
+    [Header("Set this key to be the last in a sequence of keys")]
+    public bool lastInSequence;
+    public GameObject sequenceHandler;
 
     void Start()
     {
@@ -23,6 +29,13 @@ public class XylophoneHit : MonoBehaviour
         if(col.gameObject == currentRock)
         {
             StartCoroutine(KillRock());
+            // If we are the last xylophone key in a platforming sequence, we call up the XylophoneSequenceHandler to reset all the rock spawn timers
+            // associated with the XylophoneSequenceHandler.
+            if(lastInSequence)
+            {
+                var sequenceScript = sequenceHandler.GetComponent<XylophoneSequenceHandler>();
+                sequenceScript.SequenceReset();   
+            }
         }
     }
 
@@ -40,9 +53,11 @@ public class XylophoneHit : MonoBehaviour
                 Destroy(currentRock);
             }
             
-            // We spawn a rock prefab at rockSpawnPoint and reset the spawn timer
+            // We spawn a rock prefab at rockSpawnPoint and set the timer to a high number.
+            // We want to wait for a XylophoneSequenceHandler to reset our spawnDelay timer.
+            // This is to make sure the platforming sequences made using multiple xylophone keys stay consistent.
             currentRock = Instantiate(rock, rockSpawnPoint);
-            spawnDelay = spawnDelayStart;
+            spawnDelay = 999f;
         }
     }
 
