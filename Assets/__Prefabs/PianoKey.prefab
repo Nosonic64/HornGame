@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3060899052253075954}
   - component: {fileID: 5707272613195011627}
   - component: {fileID: 1778799619168761227}
-  - component: {fileID: 5381967657471953101}
+  - component: {fileID: 8639281535215013591}
   m_Layer: 0
   m_Name: PianoKey
   m_TagString: Untagged
@@ -330,8 +330,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4760034288722985315}
   m_Mesh: {fileID: 0}
---- !u!65 &5381967657471953101
-BoxCollider:
+--- !u!64 &8639281535215013591
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -340,6 +340,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.250001, y: 0.25, z: 1.0000002}
-  m_Center: {x: 2.1250005, y: 0.125, z: -0.5000001}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
