@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3060899052253075954}
   - component: {fileID: 5707272613195011627}
   - component: {fileID: 1778799619168761227}
-  - component: {fileID: 5381967657471953101}
+  - component: {fileID: 3118165112953684406}
   m_Layer: 0
   m_Name: PianoKey
   m_TagString: Untagged
@@ -330,7 +330,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4760034288722985315}
   m_Mesh: {fileID: 0}
---- !u!65 &5381967657471953101
+--- !u!65 &3118165112953684406
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
