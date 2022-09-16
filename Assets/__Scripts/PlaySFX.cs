@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ public class PlaySFX : MonoBehaviour
     public bool dontRepeatSound;
     [Header("Turn this on to have a sound play through entirely"), Space(1), Header ("before another sound can be played")]
     public bool dontInterrupt;
+    [Header("Add an object with a trigger volume here to have it trigger this sound")]
+    public GameObject trigger;
 
 
     private void Start()
@@ -41,6 +44,14 @@ public class PlaySFX : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
         audioPlayer.playOnAwake = false;
         soundAmount = sounds.Length;
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (trigger != null && col.gameObject.tag == "Player")
+        {
+            PlaySound();
+        }
     }
 
     public void PlaySound()
