@@ -36,6 +36,7 @@ public class DelayedFall : MonoBehaviour
     {
         if(col.collider.gameObject.tag == "Player")
         {
+            col.collider.gameObject.transform.parent.parent = this.gameObject.transform;
             objectTriggered = true;
             //Play Note
             keyAudioSource.clip = noteToPlay;
@@ -46,11 +47,16 @@ public class DelayedFall : MonoBehaviour
         //
     }
 
-    void OnCollisionExit()
+    void OnCollisionExit(Collision col)
     {
-        //PushAway();
-        PushAway();
-        StartCoroutine(ObjectFall());
+        if(col.collider.gameObject.tag == "Player")
+        {
+            col.collider.gameObject.transform.parent.parent = null;
+            //PushAway();
+            PushAway();
+            StartCoroutine(ObjectFall());
+        }
+        
     }
 
     public IEnumerator ObjectFall()
@@ -68,8 +74,8 @@ public class DelayedFall : MonoBehaviour
         if (objectTriggered)
         {
             Debug.Log("WillNowFall");
-            keyAudioSource.clip = breakSFX;
-            keyAudioSource.Play(0);
+            //keyAudioSource.clip = breakSFX;
+            //keyAudioSource.Play(0);
             objectTriggered = false;
             keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ; ;
             keyRigidbody.mass = 1;

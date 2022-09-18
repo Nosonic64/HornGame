@@ -21,6 +21,7 @@ public class XylophoneHit : MonoBehaviour
     {
         playSFX = GetComponent<PlaySFX>();
         spawnDelay = spawnDelayStart;
+        spawnDelayStart = Random.Range(3f, 12.0f);
     }
 
     private void OnTriggerEnter(Collider col)
@@ -57,7 +58,7 @@ public class XylophoneHit : MonoBehaviour
             // We want to wait for a XylophoneSequenceHandler to reset our spawnDelay timer.
             // This is to make sure the platforming sequences made using multiple xylophone keys stay consistent.
             currentRock = Instantiate(rock, rockSpawnPoint);
-            spawnDelay = 999f;
+            spawnDelay = spawnDelayStart;
         }
     }
 
