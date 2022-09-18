@@ -51,6 +51,19 @@ public class ThirdPersonController : MonoBehaviour
     public LayerMask layerMask;
 
     private bool groundedCheck;
+
+    private Vector3 moveInput;
+
+    public float lastOnGroundTime;
+    public float lastPressedJumpTime;
+    public AudioSource audioPlayer;
+
+    //SOUNDS
+    [SerializeField]
+    private AudioClip jumpSound;
+    [SerializeField]
+    private AudioClip deathSound;
+
     void Awake()
     {
         charRigidBody = GetComponent<Rigidbody>();
@@ -71,14 +84,17 @@ public class ThirdPersonController : MonoBehaviour
         composer = virtualCam.GetCinemachineComponent<CinemachineComposer>();
         canvasTransition.OpenBlackScreen();
     }
+    #region Update Method
     void Update()
     {
+        lastOnGroundTime -= Time.deltaTime;
+        lastPressedJumpTime -= Time.deltaTime;
         groundedCheck = IsGrounded();
         lookAt.transform.position = transform.position;
         turn.x += Input.GetAxis("Mouse X");
         turn.y += Input.GetAxis("Mouse Y");
         turn.y = Mathf.Clamp(turn.y, -45, 35);
-        Debug.Log(turn.y);
+        //Debug.Log(turn.y);
         lookAt.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0);
             
 
@@ -111,7 +127,7 @@ public class ThirdPersonController : MonoBehaviour
         if (Currspeed > maximumSpeed)
 
         {
-            Debug.Log("TOO FAST");
+            //Debug.Log("TOO FAST");
             float brakeSpeed = Currspeed - maximumSpeed;  // calculate the speed decrease
 
             Vector3 normalisedVelocity = charRigidBody.velocity.normalized;
@@ -130,12 +146,13 @@ public class ThirdPersonController : MonoBehaviour
             }
             else
             {
-                StartCoroutine(DoubleJumpStop());
                 animator.SetBool("DoubleJump", true);
+                audioPlayer.clip = jumpSound;
+                audioPlayer.Play(0);
             }
             //animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 1000, 0) + (transform.forward * 50));
-            Debug.Log("JUMP");
+            charRigidBody.AddForce(new Vector3(0, 950, 0) + (transform.forward * 50));
+            //Debug.Log("JUMP");
             jumps++;
         }
         
@@ -148,25 +165,27 @@ public class ThirdPersonController : MonoBehaviour
         animator.SetFloat("VelocityY", localVelocityY);
         animator.SetBool("Grounded", groundedCheck);
     }
-    // Update is called once per frame
+    #endregion
+
+    #region Fixed Update Method
     void FixedUpdate()
     {
         if (!dying)
         {
             Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
             Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
-            Vector3 newForce = moveRight + moveForward;
-            if (newForce.magnitude > 0)
+            moveInput = moveRight + moveForward;
+            if (moveInput.magnitude > 0)
             {
                 charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
             }
             if (groundedCheck)
             {
-
-                if (newForce.magnitude > 0)
+                
+                if (moveInput.magnitude > 0)
                 {
-                    
-                    charRigidBody.AddForce(newForce * speed);
+                    /*Run(1);*/
+                    charRigidBody.AddForce(moveInput * speed);
                 }
                 //Debug.Log(moveForward);
                 /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
@@ -182,7 +201,8 @@ public class ThirdPersonController : MonoBehaviour
             }
             else
             {
-                charRigidBody.AddForce(newForce * (speed / 2));
+                /*Run(1);*/
+                charRigidBody.AddForce(moveInput * (speed / 2));
             }
             /*float moveRight = Input.GetAxis("Horizontal");
             float moveForward = Input.GetAxis("Vertical");
@@ -190,7 +210,9 @@ public class ThirdPersonController : MonoBehaviour
             //charRigidBody.AddForce(newForce * speed);
         }
     }
+    #endregion
 
+    #region Check Grounded
     private bool IsGrounded()
     {
 
@@ -207,9 +229,16 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         //Debug.DrawRay(cc.bounds.center, Vector3.down * (cc.bounds.extents.y + 0.1f));
+        if (raycastHit)
+        {
+            lastOnGroundTime = 0.1f;
+        }
+        Debug.Log(raycastHit);
         return raycastHit;
     }
+    #endregion
 
+    #region Drawing Gizmos Method
     private void OnDrawGizmosSelected()
     {
         if (groundedCheck)
@@ -224,26 +253,14 @@ public class ThirdPersonController : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + -transform.up * (1f));
         Gizmos.DrawWireSphere(transform.position + -transform.up * (1f), 0.4f);
     }
+    #endregion
 
-    public IEnumerator SlideStop()
-    {
-        yield return new WaitForSeconds(0.3f);
-        animator.SetBool("Slide", false);
-
-
-    }
-
-    public IEnumerator DoubleJumpStop()
-    {
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool("DoubleJump", false);
-
-
-    }
     public IEnumerator CharacterDeath(Collider col)
     {
         if (!dying)
         {
+            audioPlayer.clip = deathSound;
+            audioPlayer.Play(0);
             dying = true;
             animator.SetBool("Death", true);
             canvasTransition.CloseBlackScreen();
@@ -257,4 +274,38 @@ public class ThirdPersonController : MonoBehaviour
         }
         
     }
+
+    /*#region Run Method
+    private void Run(float lerpAmount)
+    {
+        float targetSpeed = moveInput.magnitude * speed;
+        targetSpeed = Mathf.Lerp(charRigidBody.velocity.magnitude, targetSpeed, lerpAmount);
+
+        float accelRate;
+
+        //Get how much we accelerate by depending if we are accelerating or decelerating and also taking into account if we are in air or not.
+        if (lastOnGroundTime > 0)
+        {
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? data.runAccelAmount : data.runDeccelAmount;
+        }
+        else
+        {
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? data.runAccelAmount * data.accelInAir : data.runDeccelAmount * data.deccelInAir;
+        }
+
+        if (data.doConserveMomentum && Mathf.Abs(charRigidBody.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(charRigidBody.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && lastOnGroundTime < 0)
+        {
+            //Prevent any deceleration from happening, or in other words conserve are current momentum
+            //You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+            accelRate = 0;
+        }
+
+        float speedDif = targetSpeed - charRigidBody.velocity.magnitude;
+
+        float movement = speedDif * accelRate;
+
+        charRigidBody.AddForce(movement * moveInput, ForceMode.Force);
+        Debug.Log("EEEEEEEEEEEEEE");
+    }
+    #endregion*/
 }
