@@ -177,12 +177,12 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: 182ca9ff776ae014a988d3b80ee50795, type: 3}
   - {fileID: 8300000, guid: 9378c47be8a1fff4b9a42baa5fe32f20, type: 3}
-  useRandomVolume: 0
-  volumeMin: 0
-  volumeMax: 0
-  useRandomPitch: 0
-  pitchMin: 0
-  pitchMax: 0
+  useRandomVolume: 1
+  volumeMin: 0.705
+  volumeMax: 0.919
+  useRandomPitch: 1
+  pitchMin: 1.5
+  pitchMax: 2
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
