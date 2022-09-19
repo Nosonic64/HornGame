@@ -6,10 +6,10 @@ public class ProgressHandler : MonoBehaviour
 {
     public static ProgressHandler ProgressHandlerInstance;
     // Progress handler keeps track of what instruments the player has collected.
-    public bool hasInstrumentOne;
-    public bool hasInstrumentTwo;
-    public bool hasInstrumentThree;
-    public bool hasInstrumentFour;
+    public bool hasDrumkit;
+    public bool hasBassGuitar;
+    public bool hasElectricGuitar;
+    public bool hasKeyboard;
 
     void Awake()
     {
