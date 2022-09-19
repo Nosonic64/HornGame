@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: USETHIS_Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2291119501339543295, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ab395acf8b84464e82b436fcea2abcd, type: 3}
     - target: {fileID: 2598323638153143508, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.000000018807826
@@ -152,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177964215682241968, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6177964215682241968, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 746787205}
     - target: {fileID: 5551573470812777738, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5551573470812777738, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1457,7 +1461,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8934028385340521690, guid: 6e5262ffde438cc468d3f41bc73593cb, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8934028385340521690, guid: 6e5262ffde438cc468d3f41bc73593cb, type: 3}
       propertyPath: m_LocalPosition.x
