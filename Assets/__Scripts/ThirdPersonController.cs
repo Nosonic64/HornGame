@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class ThirdPersonController : MonoBehaviour
 {
+    public float jumpHeight;
     // Start is called before the first frame update
     private CheckPointHandler checkpointHandlerScript;
     private CanvasTransition canvasTransition;
@@ -14,6 +15,7 @@ public class ThirdPersonController : MonoBehaviour
     private float maximumSpeed;
     private Rigidbody charRigidBody;
     private bool isJumping = false;
+    private bool bJumping;
 
     private Animator animator;
     int isWalkingHash;
@@ -63,6 +65,17 @@ public class ThirdPersonController : MonoBehaviour
     private AudioClip jumpSound;
     [SerializeField]
     private AudioClip deathSound;
+    [SerializeField]
+    private AudioClip[] walkingSoundsMetal;
+    [SerializeField]
+    private AudioClip[] walkingSoundsChime;
+    [SerializeField]
+    private AudioClip[] walkingSoundsDrum;
+
+
+    //Walking Bool
+    private bool amWalking;
+
 
     void Awake()
     {
@@ -87,6 +100,8 @@ public class ThirdPersonController : MonoBehaviour
     #region Update Method
     void Update()
     {
+        // get force of acceleration
+        float forceOfAcceleration = Mathf.Abs(charRigidBody.mass * Physics.gravity.y);
         lastOnGroundTime -= Time.deltaTime;
         lastPressedJumpTime -= Time.deltaTime;
         groundedCheck = IsGrounded();
@@ -100,11 +115,6 @@ public class ThirdPersonController : MonoBehaviour
 
 
         //composer.m_TrackedObjectOffset = new Vector3(composer.m_TrackedObjectOffset.x, -turn.y * 0.1f, composer.m_TrackedObjectOffset.z);
-
-        if (Input.GetButtonDown("Fire2"))
-        {
-            
-        }
 
         if (groundedCheck)
         {
@@ -140,20 +150,7 @@ public class ThirdPersonController : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && jumps < 2)
         {
-            if(jumps == 0)
-            {
-                animator.SetBool("Falling", true);
-            }
-            else
-            {
-                animator.SetBool("DoubleJump", true);
-                audioPlayer.clip = jumpSound;
-                audioPlayer.Play(0);
-            }
-            //animator.SetBool("Falling", true);
-            charRigidBody.AddForce(new Vector3(0, 950, 0) + (transform.forward * 50));
-            //Debug.Log("JUMP");
-            jumps++;
+            bJumping = true;
         }
         
 
@@ -170,14 +167,49 @@ public class ThirdPersonController : MonoBehaviour
     #region Fixed Update Method
     void FixedUpdate()
     {
+
+        if (bJumping)
+        {
+            float newjumpHeight = jumpHeight * Time.deltaTime;
+            float jumpForward = 5 * Time.deltaTime;
+            if (jumps == 0)
+            {
+                animator.SetBool("Falling", true);
+                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
+                //charRigidBody.velocity = new Vector3(0, 20, 0) + (transform.forward * 5);
+            }
+            else
+            {
+                animator.SetBool("DoubleJump", true);
+                audioPlayer.clip = jumpSound;
+                audioPlayer.Play(0);
+                charRigidBody.velocity = new Vector3(charRigidBody.velocity.x, 0, charRigidBody.velocity.z);
+                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
+                //charRigidBody.velocity = new Vector3(0, 20, 0) + (transform.forward * 5);
+
+            }
+            //animator.SetBool("Falling", true);
+
+            //Debug.Log("JUMP");
+            jumps++;
+            bJumping = false;
+        }
+
+        if (charRigidBody.velocity.y < -.50)
+        {
+            charRigidBody.velocity += Vector3.up * Physics.gravity.y * (2.4f - 1) * Time.deltaTime;
+        }
         if (!dying)
         {
-            Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right;
-            Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward;
+            Vector3 moveRight = Input.GetAxis("Horizontal") * transform.right * Time.deltaTime;
+            Vector3 moveForward = Input.GetAxis("Vertical") * transform.forward * Time.deltaTime;
             moveInput = moveRight + moveForward;
             if (moveInput.magnitude > 0)
             {
                 charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
+
+                
+
             }
             if (groundedCheck)
             {
@@ -185,7 +217,18 @@ public class ThirdPersonController : MonoBehaviour
                 if (moveInput.magnitude > 0)
                 {
                     /*Run(1);*/
+                    charRigidBody.angularDrag = 0.2f;
                     charRigidBody.AddForce(moveInput * speed);
+                    Debug.Log(moveInput * speed);
+                    if (!amWalking)
+                    {
+                        StartCoroutine(Walking());
+                    }
+                }
+                else
+                {
+                    charRigidBody.angularDrag = 1;
+                    charRigidBody.AddForce(-transform.forward * charRigidBody.velocity.magnitude);
                 }
                 //Debug.Log(moveForward);
                 /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
@@ -273,6 +316,20 @@ public class ThirdPersonController : MonoBehaviour
             dying = false;
         }
         
+    }
+
+    private IEnumerator Walking()
+    {
+
+        amWalking = true;
+        int randomClip = Random.Range(0, 5);
+        audioPlayer.clip = walkingSoundsMetal[randomClip];
+        audioPlayer.Play(0);
+        float waitSpeed =  1 / charRigidBody.velocity.magnitude;
+        waitSpeed = Mathf.Clamp(waitSpeed, 0.3f, 0.6f);
+        yield return new WaitForSeconds(waitSpeed);
+        amWalking = false;
+
     }
 
     /*#region Run Method
