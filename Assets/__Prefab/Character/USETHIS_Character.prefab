@@ -62,7 +62,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2598323638153143505}
-  m_LocalRotation: {x: 0.21012624, y: 0.000000018807832, z: -0.0000000040422656, w: 0.9776743}
+  m_LocalRotation: {x: 0.21012624, y: -0.000000018807826, z: 0.0000000040422643, w: 0.9776743}
   m_LocalPosition: {x: 0, y: 2.87, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -817,10 +817,10 @@ AudioSource:
   m_GameObject: {fileID: 2702269177208689492}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4786552551817047910, guid: d474239b664d62f47b98001790b608fc, type: 2}
   m_audioClip: {fileID: 8300000, guid: 90b7a189ecf857e409cdedf07e2b69c6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -916,7 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532c485c9cc4a65409e6c5eb18ff7513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16
+  jumpHeight: 1250
+  speed: 1750
   maximumSpeed: 5
   acceleration: 10000
   lookAt: {fileID: 2598323638618036441}
@@ -929,6 +930,44 @@ MonoBehaviour:
   audioPlayer: {fileID: 1384063967539719853}
   jumpSound: {fileID: 8300000, guid: bf07bd3585c85d54fb9292e4bc850fb7, type: 3}
   deathSound: {fileID: 8300000, guid: 90b7a189ecf857e409cdedf07e2b69c6, type: 3}
+  walkingSoundsMetal:
+  - {fileID: 8300000, guid: f0d68ab2be9fe1c47a3205f0ada1035b, type: 3}
+  - {fileID: 8300000, guid: 8b2c55c873e510a46b08139f95b79663, type: 3}
+  - {fileID: 8300000, guid: 343456961d267ad4e84df95d4329799b, type: 3}
+  - {fileID: 8300000, guid: 42147530e24d2484b975b4e07eb557c2, type: 3}
+  - {fileID: 8300000, guid: 596bdbb5a4fd1d14dbe16c8191ae5e76, type: 3}
+  - {fileID: 8300000, guid: 401a4230aa72c4a40977a44f924c11eb, type: 3}
+  walkingSoundsChime:
+  - {fileID: 8300000, guid: a6c9cd9b801e81340b08d55a4ebf8145, type: 3}
+  - {fileID: 8300000, guid: 9b926afb982efd54ea64cbb898e0332f, type: 3}
+  - {fileID: 8300000, guid: c8635fba8981d6541bb272fadcc4ecc3, type: 3}
+  - {fileID: 8300000, guid: fdd9bc89ed5a1da4cb4e1ccf729e5a58, type: 3}
+  - {fileID: 8300000, guid: f514136854c37164aa25b1a582164c27, type: 3}
+  walkingSoundsDrum:
+  - {fileID: 8300000, guid: e3f0282c2ee23384283890fa4eeac419, type: 3}
+--- !u!114 &2897242213216551224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702269177208689492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10619a5b3b783b4d9be8f72c88ed4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  useRandomVolume: 0
+  volumeMin: 0
+  volumeMax: 0
+  useRandomPitch: 0
+  pitchMin: 0
+  pitchMax: 0
+  randomSound: 0
+  dontRepeatSound: 0
+  dontInterrupt: 0
+  trigger: {fileID: 0}
 --- !u!4 &3371986465938639342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 775932255163216135, guid: 5f7fa93daba52434581ffaa3d9152bff, type: 3}
