@@ -56,6 +56,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool groundedCheck;
 
     private Vector3 moveInput;
+    private Vector3 brakeVelocity;
 
     public float lastOnGroundTime;
     public float lastPressedJumpTime;
@@ -73,6 +74,7 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private AudioClip[] walkingSoundsDrum;
 
+    private FMOD.Studio.EventInstance instance;
 
     //Walking Bool
     private bool amWalking;
@@ -94,6 +96,7 @@ public class ThirdPersonController : MonoBehaviour
         VelocityHash = Animator.StringToHash("Velocity");
         VelocityZHash = Animator.StringToHash("VelocityZ");
         VelocityYHash = Animator.StringToHash("VelocityY");
+
     }
 
     void Start()
@@ -103,6 +106,7 @@ public class ThirdPersonController : MonoBehaviour
 
         //Make screen start black and open up!
         canvasTransition.OpenBlackScreen();
+        
     }
     #region Update Method
     void Update()
@@ -147,8 +151,8 @@ public class ThirdPersonController : MonoBehaviour
         {
             float brakeSpeed = Currspeed - maximumSpeed;  // calculate the speed decrease
             Vector3 normalisedVelocity = charRigidBody.velocity.normalized;
-            Vector3 brakeVelocity = normalisedVelocity * brakeSpeed;  // make the brake Vector3 value
-            charRigidBody.AddForce(-brakeVelocity * 2);  // apply opposing brake force
+            brakeVelocity = normalisedVelocity * brakeSpeed;  // make the brake Vector3 value
+            //charRigidBody.AddForce(-brakeVelocity * 2);  // apply opposing brake force
         }
         
         //If the player wants to jump and we have jumped up to twice before hitting the ground
@@ -181,8 +185,12 @@ public class ThirdPersonController : MonoBehaviour
             if (jumps == 0)
             {
                 animator.SetBool("Falling", true);
-                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
+                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (jumpForward * transform.forward), ForceMode.Impulse);
                 //charRigidBody.velocity = new Vector3(0, 20, 0) + (transform.forward * 5);
+
+                instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Jump");
+                instance.start();
+                instance.release();
             }
             //If Jumps are at 1, we are in the air, so we do a special double jump!
             else
@@ -192,7 +200,11 @@ public class ThirdPersonController : MonoBehaviour
                 audioPlayer.Play(0);
                 //Reset velocity in the y direction so that the jump height may remain the same no matter your downwards velocity
                 charRigidBody.velocity = new Vector3(charRigidBody.velocity.x, 0, charRigidBody.velocity.z);
-                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
+                charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0), ForceMode.Impulse);
+
+                instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Voice");
+                instance.start();
+                instance.release();
 
             }
             jumps++;
@@ -233,7 +245,7 @@ public class ThirdPersonController : MonoBehaviour
                 else
                 {
                     charRigidBody.angularDrag = 1;
-                    charRigidBody.AddForce(-transform.forward * charRigidBody.velocity.magnitude);
+                    charRigidBody.AddForce(-transform.forward * charRigidBody.velocity.magnitude * Time.deltaTime);
                 }
                 //Debug.Log(moveForward);
                 /*if (moveForward * lastForward < 0 || moveRight * lastRight < 0)
@@ -250,12 +262,20 @@ public class ThirdPersonController : MonoBehaviour
             else
             {
                 /*Run(1);*/
-                charRigidBody.AddForce(moveInput * (speed / 2));
+                charRigidBody.AddForce(moveInput * (speed / 2) * Time.deltaTime);
             }
             /*float moveRight = Input.GetAxis("Horizontal");
             float moveForward = Input.GetAxis("Vertical");
             Vector3 newForce = new Vector3(moveRight, 0, moveForward);*/
             //charRigidBody.AddForce(newForce * speed);
+            float Currspeed = Vector3.Magnitude(charRigidBody.velocity);  // test current object speed
+
+            //If the player is moving faster than our maximum speed we need to slow them down by applying an opposite force.
+            if (Currspeed > maximumSpeed)
+            {
+                charRigidBody.AddForce(-brakeVelocity * 2);
+            }
+                
         }
     }
     #endregion
@@ -307,8 +327,17 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (!dying)
         {
-            audioPlayer.clip = deathSound;
-            audioPlayer.Play(0);
+
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Death");
+            instance.start();
+            instance.release();
+
+
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Transition");
+            instance.start();
+            instance.release();
+            /*audioPlayer.clip = deathSound;
+            audioPlayer.Play(0);*/
             dying = true;
             animator.SetBool("Death", true);
             canvasTransition.CloseBlackScreen();
@@ -327,13 +356,18 @@ public class ThirdPersonController : MonoBehaviour
     {
 
         amWalking = true;
-        int randomClip = Random.Range(0, 5);
+        /*int randomClip = Random.Range(0, 5);
         audioPlayer.clip = walkingSoundsMetal[randomClip];
-        audioPlayer.Play(0);
+        audioPlayer.Play(0);*/
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Footsteps");
+        instance.start();
+        instance.release();
         float waitSpeed =  1 / charRigidBody.velocity.magnitude;
         waitSpeed = Mathf.Clamp(waitSpeed, 0.3f, 0.6f);
         yield return new WaitForSeconds(waitSpeed);
         amWalking = false;
+
+
 
     }
 
