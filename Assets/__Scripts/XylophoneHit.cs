@@ -5,7 +5,8 @@ using UnityEngine;
 public class XylophoneHit : MonoBehaviour
 {
     //this script and everything associated with the xylophone keys is fucking esoteric
-    private PlaySFX playSFX;
+    public PlaySFX playXyloSFX;
+    public PlaySFX playRockSFX;
     public Transform rockSpawnPoint;
     [Header("Change this value to wait longer before spawning a rock")]
     public float spawnDelayStart;
@@ -19,7 +20,6 @@ public class XylophoneHit : MonoBehaviour
 
     void Start()
     {
-        playSFX = GetComponent<PlaySFX>();
         spawnDelay = spawnDelayStart;
         spawnDelayStart = Random.Range(3f, 12.0f);
     }
@@ -66,7 +66,8 @@ public class XylophoneHit : MonoBehaviour
     {
         // We play a sound and then wait a tiny bit before destroying the rock
         // This just looks a bit better
-        playSFX.PlaySound();
+        playXyloSFX.PlaySound();
+        playRockSFX.PlaySound(); 
         yield return new WaitForSeconds(0.1f);
         Destroy(currentRock);
         currentRock = null;

@@ -13,6 +13,7 @@ public class PlaySFX : MonoBehaviour
     AudioSource audioPlayer;
     private int soundAmount;
     private int i;
+    private float volume;
     [Header("Turn this on to have the sound use a random volume")]
     [Tooltip("Random volume between volumeMin and volumeMax will be chosen everytime the sound is played")]
     public bool useRandomVolume;
@@ -34,6 +35,8 @@ public class PlaySFX : MonoBehaviour
     public bool dontRepeatSound;
     [Header("Turn this on to have a sound play through entirely"), Space(1), Header ("before another sound can be played")]
     public bool dontInterrupt;
+    [Header("Make every sound play a new voice")]
+    public bool oneShot;
     [Header("Add an object with a trigger volume here to have it trigger this sound")]
     public GameObject trigger;
 
@@ -80,9 +83,17 @@ public class PlaySFX : MonoBehaviour
             }
 
             // If useRandomVolume is true, we select a random volume for the sound between the volumeMin and volumeMax
-            if (useRandomVolume)
+            if (useRandomVolume && oneShot)
+            {
+                volume = Random.Range(volumeMin, volumeMax);
+            }
+            else if(useRandomVolume)
             {
                 audioPlayer.volume = Random.Range(volumeMin, volumeMax);
+            }
+            else
+            {
+                volume = 1f;
             }
 
             // If useRandomPitch is true, we select a random volume for the sound between the pitchMin and pitchMax
@@ -95,8 +106,7 @@ public class PlaySFX : MonoBehaviour
             // We cant go over the number in the array while randomSound is true, so we dont have to check for it.
             if (randomSound)
             {
-                audioPlayer.clip = sounds[i];
-                audioPlayer.Play();
+                checkOneShot();
                 return;
             }
 
@@ -106,17 +116,28 @@ public class PlaySFX : MonoBehaviour
             // This is to ensure we dont leave the bounds of the array. 
             if(i < soundAmount)
             {
-                audioPlayer.clip = sounds[i];
-                audioPlayer.Play();
+                checkOneShot();
                 i += 1;
             }
             else
             {
                 i = 0;
-                audioPlayer.clip = sounds[i];
-                audioPlayer.Play();
+                checkOneShot();
                 i += 1;
             }
         }  
+    }
+
+    private void checkOneShot()
+    {
+        if (!oneShot)
+        {
+            audioPlayer.clip = sounds[i];
+            audioPlayer.Play();
+        }
+        else
+        {
+            audioPlayer.PlayOneShot(sounds[i], volume);
+        }
     }
 }
