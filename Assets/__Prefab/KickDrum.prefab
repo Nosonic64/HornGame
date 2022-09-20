@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  jumpSpeed: 28
+  jumpSpeed: 22.5
 --- !u!82 &2288695115037835423
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2355,7 +2355,7 @@ AudioSource:
   m_GameObject: {fileID: 5042432439115847482}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1063955930183926382, guid: d474239b664d62f47b98001790b608fc, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2457,11 +2457,13 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: 3121496b35bf4994a8e4a2c7a1221ed1, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.836
+  volumeMin: 0.85
   volumeMax: 1
   useRandomPitch: 1
-  pitchMin: 0.8
+  pitchMin: 0.6
   pitchMax: 1
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
+  oneShot: 0
+  trigger: {fileID: 0}
