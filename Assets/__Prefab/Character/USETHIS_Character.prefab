@@ -916,10 +916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532c485c9cc4a65409e6c5eb18ff7513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 1250
+  jumpHeight: 1000
   speed: 1750
-  maximumSpeed: 5
-  acceleration: 10000
+  maximumSpeed: 4.5
   lookAt: {fileID: 2598323638618036441}
   virtualCam: {fileID: 3540537658125545313}
   layerMask:
@@ -967,6 +966,7 @@ MonoBehaviour:
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
+  oneShot: 0
   trigger: {fileID: 0}
 --- !u!4 &3371986465938639342 stripped
 Transform:
