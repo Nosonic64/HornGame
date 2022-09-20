@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  jumpSpeed: 26
+  jumpSpeed: 22.5
 --- !u!82 &2288695115037835423
 AudioSource:
   m_ObjectHideFlags: 0
