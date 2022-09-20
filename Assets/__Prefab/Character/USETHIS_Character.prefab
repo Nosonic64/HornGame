@@ -944,6 +944,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f514136854c37164aa25b1a582164c27, type: 3}
   walkingSoundsDrum:
   - {fileID: 8300000, guid: e3f0282c2ee23384283890fa4eeac419, type: 3}
+  maxSlopeAngle: 45
 --- !u!114 &2897242213216551224
 MonoBehaviour:
   m_ObjectHideFlags: 0
