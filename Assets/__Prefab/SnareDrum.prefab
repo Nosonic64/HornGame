@@ -2358,7 +2358,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1063955930183926382, guid: d474239b664d62f47b98001790b608fc, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2458,12 +2458,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0faab6ea206b5644ea3007eabe314031, type: 3}
   - {fileID: 8300000, guid: b19be93a49f52c14a940d2f382b2167e, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.724
-  volumeMax: 1
+  volumeMin: 0.6
+  volumeMax: 0.7
   useRandomPitch: 1
   pitchMin: 1
-  pitchMax: 1.1
+  pitchMax: 1.2
   randomSound: 0
   dontRepeatSound: 1
   dontInterrupt: 0
+  oneShot: 0
   trigger: {fileID: 0}

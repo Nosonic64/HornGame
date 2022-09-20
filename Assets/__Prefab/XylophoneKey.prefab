@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6982807515275834335}
   - component: {fileID: 6982807515275834334}
   - component: {fileID: 6982807515275834333}
+  - component: {fileID: 5857218061358494740}
   m_Layer: 0
   m_Name: Functionality
   m_TagString: Untagged
@@ -60,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c05e154d9bc97b48a420042ce2f877f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playXyloSFX: {fileID: 6982807515275834333}
+  playRockSFX: {fileID: 5857218061358494740}
   rockSpawnPoint: {fileID: 6982807515461477226}
   spawnDelayStart: 3
   rock: {fileID: 6177306488719689459, guid: f4528b0bb11de97408156e604ca9c8bb, type: 3}
@@ -185,6 +188,32 @@ MonoBehaviour:
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
+  oneShot: 1
+  trigger: {fileID: 0}
+--- !u!114 &5857218061358494740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982807515275834338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10619a5b3b783b4d9be8f72c88ed4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: e42208c5ba2645d4d830bcad250d0806, type: 3}
+  useRandomVolume: 1
+  volumeMin: 0.288
+  volumeMax: 0.5
+  useRandomPitch: 0
+  pitchMin: 0
+  pitchMax: 0
+  randomSound: 0
+  dontRepeatSound: 0
+  dontInterrupt: 0
+  oneShot: 0
   trigger: {fileID: 0}
 --- !u!1 &6982807515461477225
 GameObject:

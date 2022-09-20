@@ -1193,7 +1193,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1063955930183926382, guid: d474239b664d62f47b98001790b608fc, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.705
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1301,6 +1301,7 @@ MonoBehaviour:
   randomSound: 1
   dontRepeatSound: 0
   dontInterrupt: 0
+  oneShot: 0
   trigger: {fileID: 0}
 --- !u!1 &4241304842668967044
 GameObject:

@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  jumpSpeed: 28
+  jumpSpeed: 26
 --- !u!82 &2288695115037835423
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2457,12 +2457,13 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: 3121496b35bf4994a8e4a2c7a1221ed1, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.836
+  volumeMin: 0.85
   volumeMax: 1
   useRandomPitch: 1
-  pitchMin: 0.8
+  pitchMin: 0.6
   pitchMax: 1
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
+  oneShot: 0
   trigger: {fileID: 0}
