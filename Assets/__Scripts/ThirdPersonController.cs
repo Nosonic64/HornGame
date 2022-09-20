@@ -14,7 +14,6 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private float maximumSpeed;
     private Rigidbody charRigidBody;
-    private bool isJumping = false;
     private bool bJumping;
 
     private Animator animator;
@@ -24,22 +23,24 @@ public class ThirdPersonController : MonoBehaviour
     int VelocityZHash;
     int VelocityYHash;
 
-    float velocity = 0.0f;
+    /*float velocity = 0.0f;
     float velocityZ = 0.0f;
-    float velocityY = 0.0f;
+    float velocityY = 0.0f;*/
 
-    [SerializeField]
+
     private float acceleration = 10000f;
 
+    //Getting Local Forward, Right, and Up;
     float localVelocityX;
     float localVelocityZ;
     float localVelocityY;
 
-    private float lastForward;
+    //For implimenting slide mechanics [not implemented atm]
+    /*private float lastForward;
     private float lastRight;
+    private bool sliding;*/
 
     private CapsuleCollider cc;
-    private bool sliding;
     private int jumps;
 
     private Vector2 turn;
@@ -79,9 +80,15 @@ public class ThirdPersonController : MonoBehaviour
 
     void Awake()
     {
+        //Get our Rigidbody, Animator, and Capsule Collider.
         charRigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CapsuleCollider>();
+        checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
+        canvasTransition = FindObjectOfType<CanvasTransition>();
+        composer = virtualCam.GetCinemachineComponent<CinemachineComposer>();
+
+        //Setup hashes for faster calls to the animator.
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         VelocityHash = Animator.StringToHash("Velocity");
@@ -91,10 +98,10 @@ public class ThirdPersonController : MonoBehaviour
 
     void Start()
     {
+        //Lock Cursor,
         Cursor.lockState = CursorLockMode.Locked;
-        checkpointHandlerScript = FindObjectOfType<CheckPointHandler>();
-        canvasTransition = FindObjectOfType<CanvasTransition>();
-        composer = virtualCam.GetCinemachineComponent<CinemachineComposer>();
+
+        //Make screen start black and open up!
         canvasTransition.OpenBlackScreen();
     }
     #region Update Method
@@ -102,62 +109,57 @@ public class ThirdPersonController : MonoBehaviour
     {
         // get force of acceleration
         float forceOfAcceleration = Mathf.Abs(charRigidBody.mass * Physics.gravity.y);
-        lastOnGroundTime -= Time.deltaTime;
-        lastPressedJumpTime -= Time.deltaTime;
+
+        //Check if we are grounded!
         groundedCheck = IsGrounded();
+
+        //Allow the player to rotate the camera for better views.
         lookAt.transform.position = transform.position;
         turn.x += Input.GetAxis("Mouse X");
         turn.y += Input.GetAxis("Mouse Y");
         turn.y = Mathf.Clamp(turn.y, -45, 35);
-        //Debug.Log(turn.y);
         lookAt.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0);
-            
 
-
-        //composer.m_TrackedObjectOffset = new Vector3(composer.m_TrackedObjectOffset.x, -turn.y * 0.1f, composer.m_TrackedObjectOffset.z);
-
+        //Reset Jumps if we are grounded
         if (groundedCheck)
         {
             jumps = 0;
         }
         else
         {
+            //If we are not grounded and we have not jumped yet, set jumps to 1 so that the player may only double jump.
             if (jumps == 0)
             {
                 jumps = 1;
             }
         }
 
+        //Get the local velocity in transformForward, transformRight, transformUp
         localVelocityX = transform.InverseTransformDirection(charRigidBody.velocity).x;
         localVelocityZ = transform.InverseTransformDirection(charRigidBody.velocity).z;
         localVelocityY = transform.InverseTransformDirection(charRigidBody.velocity).y;
-
+        
+        //Get Current Speed of the Player.
         float Currspeed = Vector3.Magnitude(charRigidBody.velocity);  // test current object speed
 
+        //If the player is moving faster than our maximum speed we need to slow them down by applying an opposite force.
         if (Currspeed > maximumSpeed)
-
         {
-            //Debug.Log("TOO FAST");
             float brakeSpeed = Currspeed - maximumSpeed;  // calculate the speed decrease
-
             Vector3 normalisedVelocity = charRigidBody.velocity.normalized;
             Vector3 brakeVelocity = normalisedVelocity * brakeSpeed;  // make the brake Vector3 value
-
             charRigidBody.AddForce(-brakeVelocity * 2);  // apply opposing brake force
         }
-
-        isJumping = Input.GetButtonDown("Jump");
         
+        //If the player wants to jump and we have jumped up to twice before hitting the ground
         if (Input.GetButtonDown("Jump") && jumps < 2)
         {
             bJumping = true;
         }
         
-
-        velocity = charRigidBody.velocity.magnitude;
-        velocityZ = localVelocityX;
-        animator.SetFloat(VelocityHash, velocity);
-        animator.SetFloat(VelocityZHash, velocityZ);
+        //Update the animator with velocity directions.
+        animator.SetFloat(VelocityHash, charRigidBody.velocity.magnitude);
+        animator.SetFloat(VelocityZHash, localVelocityX);
         animator.SetFloat(VelocityYHash, localVelocityY);
         animator.SetFloat("VelocityY", localVelocityY);
         animator.SetBool("Grounded", groundedCheck);
@@ -167,33 +169,36 @@ public class ThirdPersonController : MonoBehaviour
     #region Fixed Update Method
     void FixedUpdate()
     {
-
+        #region JUMP
+        //If the player has pressed jump then we start jumping!
         if (bJumping)
         {
+            //Apply jump height -- I recieved a tip that if you multiply by Time.deltaTime it should make the jumpHeight frame independent?
             float newjumpHeight = jumpHeight * Time.deltaTime;
             float jumpForward = 5 * Time.deltaTime;
+
+            //If Jumps are at 0 we do a default jump
             if (jumps == 0)
             {
                 animator.SetBool("Falling", true);
                 charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
                 //charRigidBody.velocity = new Vector3(0, 20, 0) + (transform.forward * 5);
             }
+            //If Jumps are at 1, we are in the air, so we do a special double jump!
             else
             {
                 animator.SetBool("DoubleJump", true);
                 audioPlayer.clip = jumpSound;
                 audioPlayer.Play(0);
+                //Reset velocity in the y direction so that the jump height may remain the same no matter your downwards velocity
                 charRigidBody.velocity = new Vector3(charRigidBody.velocity.x, 0, charRigidBody.velocity.z);
                 charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0) + (transform.forward * jumpForward), ForceMode.Impulse);
-                //charRigidBody.velocity = new Vector3(0, 20, 0) + (transform.forward * 5);
 
             }
-            //animator.SetBool("Falling", true);
-
-            //Debug.Log("JUMP");
             jumps++;
             bJumping = false;
         }
+        #endregion
 
         if (charRigidBody.velocity.y < -.50)
         {
