@@ -27,9 +27,12 @@ Material:
     m_Ints: []
     m_Floats:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - _CenterX: 0.5370081
     - _CenterY: 0.40708756
 =======
+=======
+>>>>>>> main
     - _CenterX: 0.5807058
     - _CenterY: 0.29737708
 >>>>>>> main
