@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637993519549511634
+  lastModified: 637993515273626303
   FileSizes:
   - Name: Desktop
     Value: 1112
@@ -231,7 +231,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Eeper.bank
   Name: Eeper
   StudioPath: bank:/Eeper
-  lastModified: 637993519537962080
+  lastModified: 637993515273601298
   FileSizes:
   - Name: Desktop
     Value: 114624
@@ -294,7 +294,7 @@ MonoBehaviour:
   - {fileID: 8271149924995879449}
   StringsBanks:
   - {fileID: -9041444276329470273}
-  cacheTime: 637993519549511634
+  cacheTime: 637993515273626303
   cacheVersion: 131591
 --- !u!114 &1296224982328596257
 MonoBehaviour:
@@ -414,7 +414,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637993519549314060
+  lastModified: 637993515273620990
   FileSizes:
   - Name: Desktop
     Value: 375008
