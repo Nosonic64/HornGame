@@ -60,11 +60,11 @@ public class LevelComplete : MonoBehaviour
         }
         if (dropDown == myEnum.Violin)
         {
-            progress.hasElectricGuitar = true;
+            progress.hasBassGuitar = true;
         }
         if (dropDown == myEnum.Trumpet)
         {
-            progress.hasBassGuitar = true;
+            progress.hasElectricGuitar = true;
         }
         player.canvasTransition.CloseBlackScreen();
         yield return new WaitForSeconds(2.5f);
