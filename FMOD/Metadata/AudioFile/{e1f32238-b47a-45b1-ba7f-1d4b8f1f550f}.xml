@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e1f32238-b47a-45b1-ba7f-1d4b8f1f550f}">
+		<property name="assetPath">
+			<value>doubleJump2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.49734374999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e1d7200-f690-46aa-8d99-6e86a4cd3ab8}</destination>
+		</relationship>
+	</object>
+</objects>
