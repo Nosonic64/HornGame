@@ -185,7 +185,11 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 637993613124014786
+=======
+  lastModified: 637993586270736299
+>>>>>>> main
   FileSizes:
   - Name: Desktop
     Value: 1238
@@ -366,7 +370,225 @@ MonoBehaviour:
   - Wet
   - Metal
   Exists: 1
+<<<<<<< HEAD
 --- !u!114 &4443340160513073534
+=======
+--- !u!114 &-3489607634177090539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Voice
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Voice
+  Guid:
+    Data1: 1778744481
+    Data2: 1229280983
+    Data3: -333613163
+    Data4: 1991898672
+  Banks:
+  - {fileID: 8271149924995879449}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6486421016469299964}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2817907643229783509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/FilterMusic
+  m_EditorClassIdentifier: 
+  Path: snapshot:/FilterMusic
+  Guid:
+    Data1: 1487878737
+    Data2: 1130042940
+    Data3: -781048701
+    Data4: -1079894883
+  Banks:
+  - {fileID: 8271149924995879449}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-1625301284941188892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Eeper.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Eeper.bank
+  Name: Eeper
+  StudioPath: bank:/Eeper
+  lastModified: 637993586270649803
+  FileSizes:
+  - Name: Desktop
+    Value: 114624
+  Exists: 1
+--- !u!114 &-1384620019114234198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Transition
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Transition
+  Guid:
+    Data1: -452970655
+    Data2: 1116292200
+    Data3: -1465664847
+    Data4: -803758627
+  Banks:
+  - {fileID: 8271149924995879449}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5473195168290920331}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -9041444276329470273}
+  - {fileID: -1625301284941188892}
+  - {fileID: 8271149924995879449}
+  EditorEvents:
+  - {fileID: 8594217591130106537}
+  - {fileID: 1296224982328596257}
+  - {fileID: -5627952524092178708}
+  - {fileID: -3489607634177090539}
+  - {fileID: -6452877038362123214}
+  - {fileID: -1384620019114234198}
+  - {fileID: -2817907643229783509}
+  EditorParameters:
+  - {fileID: 2729920053532459174}
+  - {fileID: -3893942667707706356}
+  MasterBanks:
+  - {fileID: 8271149924995879449}
+  StringsBanks:
+  - {fileID: -9041444276329470273}
+  cacheTime: 637993586270736299
+  cacheVersion: 131591
+--- !u!114 &1296224982328596257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Land
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Land
+  Guid:
+    Data1: -1052413437
+    Data2: 1224051423
+    Data3: -1660154957
+    Data4: -1969023117
+  Banks:
+  - {fileID: 8271149924995879449}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7115459627804844331}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2729920053532459174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  StudioPath: parameter:/Parameter 1
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 161358422
+    data2: 3149284458
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Boing
+  Exists: 1
+--- !u!114 &5473195168290920331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Transition/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  StudioPath: 
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 161358422
+    data2: 3149284458
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Boing
+  Exists: 1
+--- !u!114 &7003902760169109057
+>>>>>>> main
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +613,31 @@ MonoBehaviour:
   Labels:
   - Boing
   Exists: 1
+<<<<<<< HEAD
 --- !u!114 &5674855413504320199
+=======
+--- !u!114 &8271149924995879449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637993586270709803
+  FileSizes:
+  - Name: Desktop
+    Value: 376672
+  Exists: 1
+--- !u!114 &8594217591130106537
+>>>>>>> main
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
