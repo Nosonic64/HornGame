@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598323638153143508, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008411119
+      value: -0.000000008411117
       objectReference: {fileID: 0}
     - target: {fileID: 2598323638153143508, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000018077564
+      value: 0.0000000018077561
       objectReference: {fileID: 0}
     - target: {fileID: 3540537658125545326, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -156,11 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540537658125545326, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008411119
+      value: -0.000000008411117
       objectReference: {fileID: 0}
     - target: {fileID: 3540537658125545326, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000018077564
+      value: 0.0000000018077561
       objectReference: {fileID: 0}
     - target: {fileID: 6177964215682241968, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_RootOrder
@@ -632,10 +632,18 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6248699545091778977, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1341313155767488210, guid: d474239b664d62f47b98001790b608fc, type: 2}
     - target: {fileID: 8146785714010394648, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
       propertyPath: m_Volume
       value: 0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 8146785714010394648, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1341313155767488210, guid: d474239b664d62f47b98001790b608fc, type: 2}
     - target: {fileID: 8908865480045518116, guid: 766ce1444545f9648a38dc2d292c0d26, type: 3}
       propertyPath: m_Mesh
       value: 
