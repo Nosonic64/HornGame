@@ -10,6 +10,7 @@ public class ProgressHandler : MonoBehaviour
     public bool hasBassGuitar;
     public bool hasElectricGuitar;
     public bool hasKeyboard;
+    public int instrumentCount;
 
     void Awake()
     {

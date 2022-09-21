@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Character
+  m_Name: characterVolume
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: be6efe1281735d14aa29d2c07927d1ef
   m_Children: []
@@ -48,7 +48,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 82dcc82c8aba97b4599875604c924751
+    name: characterVolume
   m_AudioMixerGroupViews:
   - guids:
     - d6f756b0306bf9d41976cfedd9edfc26
@@ -110,7 +112,7 @@ AudioMixerSnapshotController:
     9a3720f2de9de5a4791a7db88e9dc880: 0
     3b17073420bd7a9418fb3eee67d2de5c: -4069
     3fa5fc682b2bec14299523c7c5edda98: -13.0627575
-    82dcc82c8aba97b4599875604c924751: -11.944506
+    82dcc82c8aba97b4599875604c924751: -16.19115
   m_TransitionOverrides: {}
 --- !u!243 &1063955930183926382
 AudioMixerGroupController:
@@ -147,7 +149,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 3906781258921699990}
   m_UserColorIndex: 0
-  m_Mute: 0
+  m_Mute: 1
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &3906781258921699990
