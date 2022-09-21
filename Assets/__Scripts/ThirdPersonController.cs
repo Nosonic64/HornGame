@@ -85,6 +85,8 @@ public class ThirdPersonController : MonoBehaviour
     private Vector3 moveRight;
     private Vector3 moveForward;
 
+    
+
 
     void Awake()
     {
@@ -119,6 +121,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         moveRight = Input.GetAxis("Horizontal") * transform.right;
         moveForward = Input.GetAxis("Vertical") * transform.forward;
+        moveInput = moveRight + moveForward;
         // get force of acceleration
         float forceOfAcceleration = Mathf.Abs(charRigidBody.mass * Physics.gravity.y);
 
@@ -229,7 +232,7 @@ public class ThirdPersonController : MonoBehaviour
         if (!dying)
         {
             
-            moveInput = moveRight + moveForward;
+            
             if (moveInput.magnitude > 0)
             {
                 charRigidBody.MoveRotation(Quaternion.Euler(0, turn.x, 0));
@@ -245,7 +248,8 @@ public class ThirdPersonController : MonoBehaviour
                     /*Run(1);*/
                     charRigidBody.angularDrag = 0.2f;
                     //charRigidBody.AddForce(moveInput * speed);
-                    if (OnSlope())
+                    charRigidBody.AddForce(moveInput * speed * Time.deltaTime);
+                    /*if (OnSlope())
                     {
                         Debug.Log("ON SLOPE");
                         charRigidBody.AddForce(GetSlopeMoveDirection() * speed * Time.deltaTime);
@@ -255,8 +259,8 @@ public class ThirdPersonController : MonoBehaviour
                     }
                     else
                     {
-                        charRigidBody.AddForce(moveInput * speed * Time.deltaTime);
-                    }
+                        
+                    }*/
                     Debug.Log(moveInput * speed);
                     if (!amWalking)
                     {
@@ -394,7 +398,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool OnSlope()
     {
-        if(Physics.Raycast(transform.position + transform.up, Vector3.down, out slopeHit, 5f, layerMask, QueryTriggerInteraction.UseGlobal))
+        if(Physics.Raycast(transform.position + transform.forward + (transform.up * 2), Vector3.down, out slopeHit, 5f, layerMask, QueryTriggerInteraction.UseGlobal))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             bool asd123 = angle < maxSlopeAngle && angle != 0;
@@ -407,7 +411,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private Vector3 GetSlopeMoveDirection()
     {
-        return Vector3.ProjectOnPlane(transform.forward * moveForward.magnitude + transform.right * moveRight.magnitude, slopeHit.normal).normalized;
+        return Vector3.ProjectOnPlane(moveInput, slopeHit.normal).normalized;
     }
 
     /*#region Run Method
