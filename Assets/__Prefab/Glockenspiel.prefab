@@ -6121,6 +6121,8 @@ GameObject:
   - component: {fileID: 7018063415289755226}
   - component: {fileID: 7018063415289755224}
   - component: {fileID: 7018063415289755225}
+  - component: {fileID: 6538595290420894623}
+  - component: {fileID: 2058669619817303901}
   m_Layer: 0
   m_Name: Mallets
   m_TagString: Untagged
@@ -6287,6 +6289,31 @@ MonoBehaviour:
   oneShot: 0
   playOnAwake: 0
   trigger: {fileID: 0}
+--- !u!114 &6538595290420894623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018063415289755228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f10b1909c3fff54db916f88de7cbe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2058669619817303901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018063415289755228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36.20144, y: 19.25504, z: 24.190956}
+  m_Center: {x: -5.25782, y: -2.9133682, z: -11.595478}
 --- !u!1 &7018063415335722223
 GameObject:
   m_ObjectHideFlags: 0
