@@ -944,7 +944,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f514136854c37164aa25b1a582164c27, type: 3}
   walkingSoundsDrum:
   - {fileID: 8300000, guid: e3f0282c2ee23384283890fa4eeac419, type: 3}
-  maxSlopeAngle: 45
+  maxSlopeAngle: 50
 --- !u!114 &2897242213216551224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,6 +969,20 @@ MonoBehaviour:
   dontInterrupt: 0
   oneShot: 0
   trigger: {fileID: 0}
+--- !u!114 &2706402467152121376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702269177208689492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619ca7cc8f6eb15458e0b24bd3193b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busVolume: 0
+  mixer: {fileID: 24100000, guid: d474239b664d62f47b98001790b608fc, type: 2}
 --- !u!4 &3371986465938639342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 775932255163216135, guid: 5f7fa93daba52434581ffaa3d9152bff, type: 3}

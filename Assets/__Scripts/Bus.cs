@@ -7,8 +7,6 @@ public class Bus : MonoBehaviour
 {
     FMOD.Studio.Bus bus;
 
-    [SerializeField]
-    private float busVolume;
     public AudioMixer mixer;
     private float ourVolume;
     // Start is called before the first frame update
