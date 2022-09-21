@@ -2458,11 +2458,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0faab6ea206b5644ea3007eabe314031, type: 3}
   - {fileID: 8300000, guid: b19be93a49f52c14a940d2f382b2167e, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.6
-  volumeMax: 0.7
+  volumeMin: 0.5
+  volumeMax: 0.65
   useRandomPitch: 1
   pitchMin: 1
-  pitchMax: 1.2
+  pitchMax: 1.13
   randomSound: 0
   dontRepeatSound: 1
   dontInterrupt: 0

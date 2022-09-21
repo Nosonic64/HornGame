@@ -1,109 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9041444276329470273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 637993613124014786
-  FileSizes:
-  - Name: Desktop
-    Value: 1238
-  Exists: 1
---- !u!114 &-7344893000416478471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Footsteps/Surface
-  m_EditorClassIdentifier: 
-  Name: Surface
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1584562842
-    data2: 565293434
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Default
-  - Chime
-  - Drum
-  - Wet
-  - Metal
-  Exists: 1
---- !u!114 &-7115459627804844331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Land/Surface
-  m_EditorClassIdentifier: 
-  Name: Surface
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1584562842
-    data2: 565293434
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Default
-  - Chime
-  - Drum
-  - Wet
-  - Metal
-  Exists: 1
---- !u!114 &-6486421016469299964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Voice/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  StudioPath: 
-  Min: 0
-  Max: 0
-  Default: 0
-  ID:
-    data1: 161358422
-    data2: 3149284458
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Boing
-  Exists: 1
---- !u!114 &-6452877038362123214
+--- !u!114 &-9144086114956569950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,16 +19,16 @@ MonoBehaviour:
     Data3: -341370994
     Data4: -1542685114
   Banks:
-  - {fileID: 8271149924995879449}
+  - {fileID: 5382559148091520243}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 7003902760169109057}
+  - {fileID: -6291739461790237507}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5627952524092178708
+--- !u!114 &-6565062343834777160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,16 +47,89 @@ MonoBehaviour:
     Data3: -1079627863
     Data4: -688155608
   Banks:
-  - {fileID: 8271149924995879449}
+  - {fileID: 5382559148091520243}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 9186308470999646338}
+  - {fileID: -4612365273368646543}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3893942667707706356
+--- !u!114 &-6291739461790237507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  StudioPath: 
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 161358422
+    data2: 3149284458
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Boing
+  Exists: 1
+--- !u!114 &-6242009757105018866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Eeper.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Eeper.bank
+  Name: Eeper
+  StudioPath: bank:/Eeper
+  lastModified: 637993613123444049
+  FileSizes:
+  - Name: Desktop
+    Value: 114624
+  Exists: 1
+--- !u!114 &-5995228633116253197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Voice
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Voice
+  Guid:
+    Data1: 1778744481
+    Data2: 1229280983
+    Data3: -333613163
+    Data4: 1991898672
+  Banks:
+  - {fileID: 5382559148091520243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3060280681618502905}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4722907234730803501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +158,32 @@ MonoBehaviour:
   - Wet
   - Metal
   Exists: 1
---- !u!114 &-3489607634177090539
+--- !u!114 &-4612365273368646543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Death/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  StudioPath: 
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 161358422
+    data2: 3149284458
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Boing
+  Exists: 1
+--- !u!114 &-4484681659487858018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,72 +193,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player/Voice
+  m_Name: event:/Player/Footsteps
   m_EditorClassIdentifier: 
-  Path: event:/Player/Voice
+  Path: event:/Player/Footsteps
   Guid:
-    Data1: 1778744481
-    Data2: 1229280983
-    Data3: -333613163
-    Data4: 1991898672
+    Data1: -278300706
+    Data2: 1307980154
+    Data3: 464281523
+    Data4: 74683793
   Banks:
-  - {fileID: 8271149924995879449}
+  - {fileID: -6242009757105018866}
+  - {fileID: 5382559148091520243}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -6486421016469299964}
+  - {fileID: 3461111336331135083}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-2817907643229783509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: snapshot:/FilterMusic
-  m_EditorClassIdentifier: 
-  Path: snapshot:/FilterMusic
-  Guid:
-    Data1: 1487878737
-    Data2: 1130042940
-    Data3: -781048701
-    Data4: -1079894883
-  Banks:
-  - {fileID: 8271149924995879449}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-1625301284941188892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Eeper.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD/Build/Desktop/Eeper.bank
-  Name: Eeper
-  StudioPath: bank:/Eeper
-  lastModified: 637993613123444049
-  FileSizes:
-  - Name: Desktop
-    Value: 114624
-  Exists: 1
---- !u!114 &-1384620019114234198
+--- !u!114 &-1162314115953993240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,12 +231,12 @@ MonoBehaviour:
     Data3: -1465664847
     Data4: -803758627
   Banks:
-  - {fileID: 8271149924995879449}
+  - {fileID: 5382559148091520243}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 5473195168290920331}
+  - {fileID: 878275926971751952}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -304,80 +253,27 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -9041444276329470273}
-  - {fileID: -1625301284941188892}
-  - {fileID: 8271149924995879449}
+  - {fileID: 3835952030489705279}
+  - {fileID: -6242009757105018866}
+  - {fileID: 5382559148091520243}
   EditorEvents:
-  - {fileID: 8594217591130106537}
-  - {fileID: 1296224982328596257}
-  - {fileID: -5627952524092178708}
-  - {fileID: -3489607634177090539}
-  - {fileID: -6452877038362123214}
-  - {fileID: -1384620019114234198}
-  - {fileID: -2817907643229783509}
+  - {fileID: -4484681659487858018}
+  - {fileID: 4160273008015462686}
+  - {fileID: -6565062343834777160}
+  - {fileID: 986052426780067854}
+  - {fileID: -1162314115953993240}
+  - {fileID: -5995228633116253197}
+  - {fileID: -9144086114956569950}
   EditorParameters:
-  - {fileID: 2729920053532459174}
-  - {fileID: -3893942667707706356}
+  - {fileID: 7103701333174521690}
+  - {fileID: -4722907234730803501}
   MasterBanks:
-  - {fileID: 8271149924995879449}
+  - {fileID: 5382559148091520243}
   StringsBanks:
-  - {fileID: -9041444276329470273}
+  - {fileID: 3835952030489705279}
   cacheTime: 637993613124014786
   cacheVersion: 131591
---- !u!114 &1296224982328596257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player/Land
-  m_EditorClassIdentifier: 
-  Path: event:/Player/Land
-  Guid:
-    Data1: -1052413437
-    Data2: 1224051423
-    Data3: -1660154957
-    Data4: -1969023117
-  Banks:
-  - {fileID: 8271149924995879449}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -7115459627804844331}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &2729920053532459174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  StudioPath: parameter:/Parameter 1
-  Min: 0
-  Max: 0
-  Default: 0
-  ID:
-    data1: 161358422
-    data2: 3149284458
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Boing
-  Exists: 1
---- !u!114 &5473195168290920331
+--- !u!114 &878275926971751952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,7 +298,34 @@ MonoBehaviour:
   Labels:
   - Boing
   Exists: 1
---- !u!114 &7003902760169109057
+--- !u!114 &986052426780067854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/FilterMusic
+  m_EditorClassIdentifier: 
+  Path: snapshot:/FilterMusic
+  Guid:
+    Data1: 1487878737
+    Data2: 1130042940
+    Data3: -781048701
+    Data4: -1079894883
+  Banks:
+  - {fileID: 5382559148091520243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &3060280681618502905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,7 +335,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Jump/Parameter 1
+  m_Name: parameter:/Voice/Parameter 1
   m_EditorClassIdentifier: 
   Name: Parameter 1
   StudioPath: 
@@ -427,7 +350,84 @@ MonoBehaviour:
   Labels:
   - Boing
   Exists: 1
---- !u!114 &8271149924995879449
+--- !u!114 &3461111336331135083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 1584562842
+    data2: 565293434
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Default
+  - Chime
+  - Drum
+  - Wet
+  - Metal
+  Exists: 1
+--- !u!114 &3835952030489705279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637993613124014786
+  FileSizes:
+  - Name: Desktop
+    Value: 1238
+  Exists: 1
+--- !u!114 &4160273008015462686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Land
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Land
+  Guid:
+    Data1: -1052413437
+    Data2: 1224051423
+    Data3: -1660154957
+    Data4: -1969023117
+  Banks:
+  - {fileID: 5382559148091520243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5389685010126195918}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5382559148091520243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,36 +447,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 376672
   Exists: 1
---- !u!114 &8594217591130106537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player/Footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/Player/Footsteps
-  Guid:
-    Data1: -278300706
-    Data2: 1307980154
-    Data3: 464281523
-    Data4: 74683793
-  Banks:
-  - {fileID: -1625301284941188892}
-  - {fileID: 8271149924995879449}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -7344893000416478471}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &9186308470999646338
+--- !u!114 &5389685010126195918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,10 +457,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Death/Parameter 1
+  m_Name: parameter:/Land/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 1584562842
+    data2: 565293434
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Default
+  - Chime
+  - Drum
+  - Wet
+  - Metal
+  Exists: 1
+--- !u!114 &7103701333174521690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Parameter 1
   m_EditorClassIdentifier: 
   Name: Parameter 1
-  StudioPath: 
+  StudioPath: parameter:/Parameter 1
   Min: 0
   Max: 0
   Default: 0
