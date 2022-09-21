@@ -206,7 +206,7 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: e42208c5ba2645d4d830bcad250d0806, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.001
+  volumeMin: 0.025
   volumeMax: 0.075
   useRandomPitch: 0
   pitchMin: 0
