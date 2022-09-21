@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637993519549511634
+  lastModified: 637993548902381135
   FileSizes:
   - Name: Desktop
-    Value: 1112
+    Value: 1238
   Exists: 1
 --- !u!114 &-7344893000416478471
 MonoBehaviour:
@@ -216,6 +216,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2817907643229783509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/FilterMusic
+  m_EditorClassIdentifier: 
+  Path: snapshot:/FilterMusic
+  Guid:
+    Data1: 1487878737
+    Data2: 1130042940
+    Data3: -781048701
+    Data4: -1079894883
+  Banks:
+  - {fileID: 8271149924995879449}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-1625301284941188892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +258,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Eeper.bank
   Name: Eeper
   StudioPath: bank:/Eeper
-  lastModified: 637993519537962080
+  lastModified: 637993548901806311
   FileSizes:
   - Name: Desktop
     Value: 114624
@@ -287,6 +314,7 @@ MonoBehaviour:
   - {fileID: -3489607634177090539}
   - {fileID: -6452877038362123214}
   - {fileID: -1384620019114234198}
+  - {fileID: -2817907643229783509}
   EditorParameters:
   - {fileID: 2729920053532459174}
   - {fileID: -3893942667707706356}
@@ -294,7 +322,7 @@ MonoBehaviour:
   - {fileID: 8271149924995879449}
   StringsBanks:
   - {fileID: -9041444276329470273}
-  cacheTime: 637993519549511634
+  cacheTime: 637993548902381135
   cacheVersion: 131591
 --- !u!114 &1296224982328596257
 MonoBehaviour:
@@ -414,10 +442,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637993519549314060
+  lastModified: 637993548902340591
   FileSizes:
   - Name: Desktop
-    Value: 375008
+    Value: 376672
   Exists: 1
 --- !u!114 &8594217591130106537
 MonoBehaviour:
