@@ -8,7 +8,7 @@ public class ThirdPersonController : MonoBehaviour
     public float jumpHeight;
     // Start is called before the first frame update
     private CheckPointHandler checkpointHandlerScript;
-    private CanvasTransition canvasTransition;
+    public CanvasTransition canvasTransition;
     [SerializeField]
     private float speed;
     [SerializeField]
