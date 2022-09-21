@@ -2298,8 +2298,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.25
-  m_Center: {x: 1, y: 1, z: 1}
+  m_Radius: 0.96536833
+  m_Center: {x: 0.71536905, y: 1, z: 1}
 --- !u!114 &8038615824359361531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2465,9 +2465,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1063955930183926382, guid: d474239b664d62f47b98001790b608fc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2732274acdd8de3499c74c01ae77fd94, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2475,7 +2475,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.3
-  MinDistance: 6
+  MinDistance: 9
   MaxDistance: 16
   Pan2D: 0
   rolloffMode: 1
@@ -2551,6 +2551,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3396442330198745842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577753472802863191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10619a5b3b783b4d9be8f72c88ed4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 2732274acdd8de3499c74c01ae77fd94, type: 3}
+  useRandomVolume: 1
+  volumeMin: 0.05
+  volumeMax: 0.15
+  useRandomPitch: 1
+  pitchMin: 0.6
+  pitchMax: 1
+  randomSound: 0
+  dontRepeatSound: 0
+  dontInterrupt: 0
+  oneShot: 0
+  playOnAwake: 1
+  trigger: {fileID: 0}
 --- !u!114 &5592896004002788927
 MonoBehaviour:
   m_ObjectHideFlags: 0

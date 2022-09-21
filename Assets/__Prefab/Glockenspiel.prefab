@@ -6285,6 +6285,7 @@ MonoBehaviour:
   dontRepeatSound: 0
   dontInterrupt: 0
   oneShot: 0
+  playOnAwake: 0
   trigger: {fileID: 0}
 --- !u!1 &7018063415335722223
 GameObject:

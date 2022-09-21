@@ -37,6 +37,8 @@ public class PlaySFX : MonoBehaviour
     public bool dontInterrupt;
     [Header("Make every sound play a new voice")]
     public bool oneShot;
+    [Header("Play this sound on awake")]
+    public bool playOnAwake;
     [Header("Add an object with a trigger volume here to have it trigger this sound")]
     public GameObject trigger;
 
@@ -46,6 +48,10 @@ public class PlaySFX : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
         audioPlayer.playOnAwake = false;
         soundAmount = sounds.Length;
+        if (playOnAwake)
+        {
+            PlaySound();
+        }
     }
 
     private void OnTriggerEnter(Collider col)

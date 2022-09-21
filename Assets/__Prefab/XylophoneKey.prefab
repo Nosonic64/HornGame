@@ -89,8 +89,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 15.250001
-  MaxDistance: 20
+  MinDistance: 17.5
+  MaxDistance: 24.5
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: aa5f4c9114638f44395a4df7a4429257, type: 3}
-  useRandomVolume: 0
-  volumeMin: 0
-  volumeMax: 0
+  useRandomVolume: 1
+  volumeMin: 0.6
+  volumeMax: 0.8
   useRandomPitch: 0
   pitchMin: 0
   pitchMax: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   dontRepeatSound: 0
   dontInterrupt: 0
   oneShot: 1
+  playOnAwake: 0
   trigger: {fileID: 0}
 --- !u!114 &5857218061358494740
 MonoBehaviour:
@@ -205,15 +206,16 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: e42208c5ba2645d4d830bcad250d0806, type: 3}
   useRandomVolume: 1
-  volumeMin: 0.147
-  volumeMax: 0.287
+  volumeMin: 0.001
+  volumeMax: 0.075
   useRandomPitch: 0
   pitchMin: 0
   pitchMax: 0
   randomSound: 0
   dontRepeatSound: 0
   dontInterrupt: 0
-  oneShot: 0
+  oneShot: 1
+  playOnAwake: 0
   trigger: {fileID: 0}
 --- !u!1 &6982807515461477225
 GameObject:
