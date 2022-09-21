@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f5b4399c-0a72-42e7-a93d-36a611b3f814}">
+		<property name="assetPath">
+			<value>FootstepChime5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3943958333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e1d7200-f690-46aa-8d99-6e86a4cd3ab8}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -917,7 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 1000
-  speed: 1750
+  speed: 1800
   maximumSpeed: 4.5
   lookAt: {fileID: 2598323638618036441}
   virtualCam: {fileID: 3540537658125545313}
