@@ -11,7 +11,7 @@ public class DelayedFall : MonoBehaviour
     private AudioClip breakSFX;
 
     //Get Components
-    private AudioSource keyAudioSource;
+    public AudioSource keyAudioSource;
     private Rigidbody keyRigidbody;
 
     //Other Useful Variables
@@ -21,7 +21,7 @@ public class DelayedFall : MonoBehaviour
     void Start()
     {
         returnPos = transform.position;
-        keyAudioSource = transform.GetComponent<AudioSource>();
+        //keyAudioSource = transform.GetComponent<AudioSource>();
         keyRigidbody = transform.GetComponent<Rigidbody>();
         keyRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
