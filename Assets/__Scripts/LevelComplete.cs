@@ -50,6 +50,22 @@ public class LevelComplete : MonoBehaviour
 
     private IEnumerator SceneTransition()
     {
+        if(dropDown == myEnum.Drum)
+        {
+            progress.hasDrumkit = true;
+        }
+        if (dropDown == myEnum.Piano)
+        {
+            progress.hasKeyboard = true;
+        }
+        if (dropDown == myEnum.Violin)
+        {
+            progress.hasElectricGuitar = true;
+        }
+        if (dropDown == myEnum.Trumpet)
+        {
+            progress.hasBassGuitar = true;
+        }
         player.canvasTransition.CloseBlackScreen();
         yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("Hub");
