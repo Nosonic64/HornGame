@@ -207,7 +207,6 @@ public class ThirdPersonController : MonoBehaviour
             else
             {
                 animator.SetBool("DoubleJump", true);
-                
                 //Reset velocity in the y direction so that the jump height may remain the same no matter your downwards velocity
                 charRigidBody.velocity = new Vector3(charRigidBody.velocity.x, 0, charRigidBody.velocity.z);
                 charRigidBody.AddForce(new Vector3(0, newjumpHeight, 0), ForceMode.Impulse);
