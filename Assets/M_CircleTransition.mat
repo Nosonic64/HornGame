@@ -26,8 +26,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CenterX: 0.5370081
-    - _CenterY: 0.40708816
+    - _CenterX: 0.5370082
+    - _CenterY: 0.4070875
     - _Radius: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
