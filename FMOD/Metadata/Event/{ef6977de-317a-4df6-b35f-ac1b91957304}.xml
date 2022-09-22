@@ -87,7 +87,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{bf699af9-4e28-45f0-a231-25029f8e993f}">
 		<property name="volume">
-			<value>-15</value>
+			<value>-5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{ac5bbd89-ae24-484c-95eb-e6dea9b2038b}</destination>
@@ -102,6 +102,9 @@
 	<object class="MultiSound" id="{5ca079f9-1e3a-4022-a843-5d3eae87c8f5}">
 		<property name="start">
 			<value>3</value>
+		</property>
+		<property name="volume">
+			<value>-5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{eac3f0da-d2d2-4513-83c4-e66994393f67}</destination>
@@ -167,6 +170,9 @@
 		<property name="start">
 			<value>1</value>
 		</property>
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{7753824d-2b61-4305-9273-afe9ceb49b27}</destination>
 			<destination>{a6ea434b-1fca-4472-99fb-1cf7d5973816}</destination>
@@ -181,6 +187,9 @@
 	</object>
 	<object class="MultiSound" id="{04a7edd7-0387-4b83-844b-a5c841e30ecf}">
 		<property name="start">
+			<value>5</value>
+		</property>
+		<property name="volume">
 			<value>5</value>
 		</property>
 		<relationship name="modulators">
