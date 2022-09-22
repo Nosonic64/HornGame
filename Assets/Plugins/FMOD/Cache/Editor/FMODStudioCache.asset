@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637993728239617975
+  lastModified: 637994550536720608
   FileSizes:
   - Name: Desktop
     Value: 1238
@@ -35,7 +35,7 @@ MonoBehaviour:
   Name: Surface
   StudioPath: 
   Min: 0
-  Max: 4
+  Max: 5
   Default: 0
   ID:
     data1: 1584562842
@@ -48,6 +48,7 @@ MonoBehaviour:
   - Drum
   - Wet
   - Metal
+  - Echo
   Exists: 1
 --- !u!114 &-7115459627804844331
 MonoBehaviour:
@@ -64,7 +65,7 @@ MonoBehaviour:
   Name: Surface
   StudioPath: 
   Min: 0
-  Max: 4
+  Max: 5
   Default: 0
   ID:
     data1: 1584562842
@@ -77,6 +78,7 @@ MonoBehaviour:
   - Drum
   - Wet
   - Metal
+  - Echo
   Exists: 1
 --- !u!114 &-6486421016469299964
 MonoBehaviour:
@@ -174,7 +176,7 @@ MonoBehaviour:
   Name: Surface
   StudioPath: parameter:/Surface
   Min: 0
-  Max: 4
+  Max: 5
   Default: 0
   ID:
     data1: 1584562842
@@ -187,6 +189,7 @@ MonoBehaviour:
   - Drum
   - Wet
   - Metal
+  - Echo
   Exists: 1
 --- !u!114 &-3489607634177090539
 MonoBehaviour:
@@ -258,10 +261,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Eeper.bank
   Name: Eeper
   StudioPath: bank:/Eeper
-  lastModified: 637993728238961389
+  lastModified: 637994550536120531
   FileSizes:
   - Name: Desktop
-    Value: 192800
+    Value: 229632
   Exists: 1
 --- !u!114 &-1384620019114234198
 MonoBehaviour:
@@ -322,7 +325,7 @@ MonoBehaviour:
   - {fileID: 8271149924995879449}
   StringsBanks:
   - {fileID: -9041444276329470273}
-  cacheTime: 637993728239617975
+  cacheTime: 637994550536720608
   cacheVersion: 131591
 --- !u!114 &1296224982328596257
 MonoBehaviour:
@@ -442,10 +445,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637993728239567971
+  lastModified: 637994550536680609
   FileSizes:
   - Name: Desktop
-    Value: 377952
+    Value: 414784
   Exists: 1
 --- !u!114 &8594217591130106537
 MonoBehaviour:

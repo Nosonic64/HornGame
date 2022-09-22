@@ -27,8 +27,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _CenterX: 0.5370081
-    - _CenterY: 0.40708816
-    - _Radius: 1
+    - _CenterY: 0.40708762
+    - _Radius: 0.5664407
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
