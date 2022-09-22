@@ -16,7 +16,7 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>5</value>
+			<value>6</value>
 		</property>
 		<property name="enumerationLabels">
 			<value>Default</value>
@@ -24,6 +24,7 @@
 			<value>Drum</value>
 			<value>Wet</value>
 			<value>Metal</value>
+			<value>Echo</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>

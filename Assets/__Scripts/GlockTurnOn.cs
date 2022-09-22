@@ -9,7 +9,8 @@ public class GlockTurnOn : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
+        bc = GetComponent<BoxCollider>();
     }
     private void OnTriggerEnter(Collider col)
     {

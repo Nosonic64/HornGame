@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 261998402145310203}
   - component: {fileID: 2075274498020733376}
   - component: {fileID: 5617164528262390304}
+  - component: {fileID: 3208565055638165056}
   m_Layer: 0
   m_Name: PianoKeys
   m_TagString: Untagged
@@ -194,6 +195,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3208565055638165056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166539313206697765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: Surface
+  TriggerEvent: 7
+  Value: 5
 --- !u!1001 &6775122244924251385
 PrefabInstance:
   m_ObjectHideFlags: 0
