@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1217,19 +1217,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598323638153143508, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018807826
+      value: 0.000000018807832
       objectReference: {fileID: 0}
     - target: {fileID: 2598323638153143508, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000040422643
+      value: -0.0000000040422656
       objectReference: {fileID: 0}
     - target: {fileID: 3540537658125545326, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018807826
+      value: 0.000000018807832
       objectReference: {fileID: 0}
     - target: {fileID: 3540537658125545326, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000040422643
+      value: -0.0000000040422656
       objectReference: {fileID: 0}
     - target: {fileID: 6177964215682241968, guid: 1f1446a70ea0d6e40a44639a3079c79d, type: 3}
       propertyPath: m_RootOrder
@@ -1784,7 +1784,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-285804
+  m_Name: pb_Mesh-351938
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2664,6 +2664,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b09532b1263c9845bce790ac9e31435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &879795215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3742775638214434102, guid: 4ec03dadb2383d24383c1e7fffefd991, type: 3}
+  m_PrefabInstance: {fileID: 1595440999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &879795222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879795215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: Surface
+  TriggerEvent: 7
+  Value: 5
 --- !u!43 &900518013
 Mesh:
   m_ObjectHideFlags: 0
