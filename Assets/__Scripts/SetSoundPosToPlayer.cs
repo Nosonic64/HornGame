@@ -7,11 +7,6 @@ public class SetSoundPosToPlayer : MonoBehaviour
 {
     public GameObject soundPos;
 
-    private void Awake()
-    {
-        soundPos = GetComponentInChildren<GameObject>();
-        
-    }
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player")

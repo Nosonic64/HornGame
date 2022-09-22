@@ -66,6 +66,7 @@ public class LevelComplete : MonoBehaviour
         {
             progress.hasElectricGuitar = true;
         }
+        progress.instrumentCount += 1;
         player.canvasTransition.CloseBlackScreen();
         yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("Hub");
